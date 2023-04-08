@@ -6,6 +6,14 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TestJavaFX",
+            "request": "launch",
+            "mainClass": "main.Entities.TestJavaFX",
+            "projectName": "Bomberman_79e07d8",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"
@@ -16,7 +24,7 @@
             "request": "launch",
             "mainClass": "main.Entities.TestJavaFX",
             "projectName": "Bomberman_ced31e97",
-            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
         }
     ]
 }
