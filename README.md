@@ -1,1 +1,1 @@
-# Bomberman
+# Major Assignment : Bomberman Game
