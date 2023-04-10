@@ -15,6 +15,4 @@ public abstract class AnimateEntity extends Entity {
         return Math.sqrt(Math.pow(e1.getX() - e2.getX(), 2) + Math.pow(e1.getY() - e2.getY(), 2));
     }
 
-
-    
 }
