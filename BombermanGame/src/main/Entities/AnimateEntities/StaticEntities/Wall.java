@@ -1,5 +1,17 @@
 package main.Entities.AnimateEntities.StaticEntities;
 
-public class Wall {
+import javafx.scene.image.Image;
+import main.Entities.Entity;
+
+public class Wall extends StaticEntity {
     
+    public Wall(int x, int y, Image img) {
+        super(x, y, img);
+    }
+
+    @Override
+    public void update() {
+
+    }
+
 }
