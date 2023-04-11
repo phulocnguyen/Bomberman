@@ -2,10 +2,9 @@ package main.Entities.AnimateEntities;
 
 import main.Entities.Entity;
 import java.math.*;
+import javafx.scene.image.Image;
 
 public abstract class AnimateEntity extends Entity {
-
-    
 
     public AnimateEntity(int xUnit, int yUnit, Image img) {
         super(xUnit, yUnit, img);

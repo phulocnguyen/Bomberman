@@ -1,7 +1,6 @@
 package main.Entities.AnimateEntities.StaticEntities;
 
 import javafx.scene.image.Image;
-import main.Entities.AnimateEntities.StaticEntities.StaticEntity;
 
 public class Portal extends StaticEntity {
     
@@ -11,6 +10,7 @@ public class Portal extends StaticEntity {
         super(x, y, img);
     }
 
+    @Override
     public void update() {
         
     }

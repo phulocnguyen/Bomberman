@@ -1,6 +1,6 @@
 package main.Entities.AnimateEntities.StaticEntities;
 
-import main.*;
+import main.Entities.AnimateEntities.AnimateEntity;
 import javafx.scene.image.Image;
 
 
@@ -10,8 +10,7 @@ public abstract class StaticEntity extends AnimateEntity {
         super(x, y, img);
     }
 
-    @Override
-    public void increaseScore() {
-        score += 0;
+    public void update() {
+        
     }
 }
