@@ -22,9 +22,9 @@ public class SpeedItem extends Item {
 
     public void update() {
         for (Entity entity : block) {
-            if (entity instanceof SpeedItem && !this.gained) {
+            //if (entity instanceof SpeedItem && !this.gained) {
             
-            }
+            
         }
     }
 }

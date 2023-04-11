@@ -16,8 +16,8 @@ public abstract class Entity {
     protected Image img;
 
     public Entity(int xUnit, int yUnit, Image img) {
-        this.x = xUnit * Sprite.SCALED_SIZE;
-        this.y = yUnit * Sprite.SCALED_SIZE;
+        this.x = xUnit * Sprite.scaledSize;
+        this.y = yUnit * Sprite.scaledSize;
         this.img = img;
     }
 
@@ -45,7 +45,7 @@ public abstract class Entity {
         return img;
     }
 
-    public void setImage(Image img) {
+    public void setImg(Image img) {
         this.img = img;
     }
 

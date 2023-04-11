@@ -24,16 +24,16 @@ public class Bomber extends DynamicEntity {
     private void killBomber(DynamicEntity de) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
-                de.setImg(Sprite.player_dead1.getFxImage());
+                de.setImg(Sprite.playerDead_1.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
-                de.setImg(Sprite.player_dead2.getFxImage());
+                de.setImg(Sprite.playerDead_2.getFxImage());
                 swapKill = 3;
             } else if (swapKill == 3) {
-                de.setImg(Sprite.player_dead3.getFxImage());
+                de.setImg(Sprite.playerDead_3.getFxImage());
                 swapKill = 4;
             } else {
-                de.setImg(Sprite.transparent.getFxImage());
+                de.setImg(Sprite._transparent.getFxImage());
                 running = false;
                 Image gameOver = new Image("images/gameOver.png");
                 authorView.setImage(gameOver);

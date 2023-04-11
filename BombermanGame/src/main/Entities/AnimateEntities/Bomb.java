@@ -55,7 +55,7 @@ public class Bomb extends Entity {
             y = Math.round(y);
             bomb = new Bomb(x, y, Sprite.bomb.getFxImage());
             block.add(bomb);
-            idObjects[player.getX() / 32][player.getY() / 32] = 4;
+            id_Objects[player.getX() / 32][player.getY() / 32] = 4;
         }
     }
 
@@ -166,71 +166,71 @@ public class Bomb extends Entity {
     public static void explodeCenter() {
         if (swapExplosion == 1) {
             bomb.setImg(Sprite.bombExploded.getFxImage());
-            listKill[bomb.getX() / 32][bomb.getY() / 32] = 4;
+            list_Kill[bomb.getX() / 32][bomb.getY() / 32] = 4;
             if (Blocked.block_down_bomb(bomb, bombDown_power)) {
-                edgeDown.setImg(Sprite.explosion_vertical_down_last.getFxImage());
-                listKill[edgeDown.getX() / 32][edgeDown.getY() / 32] = 4;
+                edgeDown.setImg(Sprite.explosionVerticalDownLast.getFxImage());
+                list_Kill[edgeDown.getX() / 32][edgeDown.getY() / 32] = 4;
             }
             if (Blocked.block_up_bomb(bomb, bombUp_power)) {
-                edgeUp.setImg(Sprite.explosion_vertical_top_last.getFxImage());
-                listKill[edgeUp.getX() / 32][edgeUp.getY() / 32] = 4;
+                edgeUp.setImg(Sprite.explosionVerticalTopLast.getFxImage());
+                list_Kill[edgeUp.getX() / 32][edgeUp.getY() / 32] = 4;
             }
             if (Blocked.block_left_bomb(bomb, bombLeft_power)) {
-                edgeLeft.setImg(Sprite.explosion_horizontal_left_last.getFxImage());
-                listKill[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 4;
+                edgeLeft.setImg(Sprite.explosionHorizontalLeftLast.getFxImage());
+                list_Kill[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 4;
             }
             if (Blocked.block_right_bomb(bomb, bombRight_power)) {
-                edgeRight.setImg(Sprite.explosion_horizontal_right_last.getFxImage());
-                listKill[edgeRight.getX() / 32][edgeRight.getY() / 32] = 4;
+                edgeRight.setImg(Sprite.explosionHorizontalRightLast.getFxImage());
+                list_Kill[edgeRight.getX() / 32][edgeRight.getY() / 32] = 4;
             }
             if (list1.size() > 0)
                 for (Entity e : list1) {
-                    e.setImg(Sprite.explosion_vertical.getFxImage());
-                    listKill[e.getX() / 32][e.getY() / 32] = 4;
+                    e.setImg(Sprite.explosionVertical.getFxImage());
+                    list_Kill[e.getX() / 32][e.getY() / 32] = 4;
                 }
             if (list.size() > 0)
                 for (Entity e : list) {
-                    e.setImg(Sprite.explosion_horizontal.getFxImage());
-                    listKill[e.getX() / 32][e.getY() / 32] = 4;
+                    e.setImg(Sprite.explosionHorizontal.getFxImage());
+                    list_Kill[e.getX() / 32][e.getY() / 32] = 4;
                 }
             swapExplosion = 2;
 
         } else if (swapExplosion == 2) {
-            bomb.setImg(Sprite.bomb_exploded1.getFxImage());
+            bomb.setImg(Sprite.bombExploded_1.getFxImage());
             if (Blocked.block_down_bomb(bomb, bombDown_power))
-                edgeDown.setImg(Sprite.explosion_vertical_down_last1.getFxImage());
+                edgeDown.setImg(Sprite.explosionVerticalDownLast_1.getFxImage());
             if (Blocked.block_up_bomb(bomb, bombUp_power))
-                edgeUp.setImg(Sprite.explosion_vertical_top_last1.getFxImage());
+                edgeUp.setImg(Sprite.explosionVerticalTopLast_1.getFxImage());
             if (Blocked.block_left_bomb(bomb, bombLeft_power))
-                edgeLeft.setImg(Sprite.explosion_horizontal_left_last1.getFxImage());
+                edgeLeft.setImg(Sprite.explosionHorizontalLeftLast_1.getFxImage());
             if (Blocked.block_right_bomb(bomb, bombRight_power))
-                edgeRight.setImg(Sprite.explosion_horizontal_right_last1.getFxImage());
+                edgeRight.setImg(Sprite.explosionHorizontalRightLast_1.getFxImage());
             if (isMiddle) {
                 for (Entity e : list1) {
-                    e.setImg(Sprite.explosion_vertical1.getFxImage());
+                    e.setImg(Sprite.explosionVertical_1.getFxImage());
                 }
                 for (Entity e : list) {
-                    e.setImg(Sprite.explosion_horizontal1.getFxImage());
+                    e.setImg(Sprite.explosionHorizontal_1.getFxImage());
                 }
             }
             swapExplosion = 3;
 
         } else if (swapExplosion == 3) {
-            bomb.setImg(Sprite.bomb_exploded2.getFxImage());
+            bomb.setImg(Sprite.bombExploded_2.getFxImage());
             if (Blocked.block_down_bomb(bomb, bombDown_power))
-                edgeDown.setImg(Sprite.explosion_vertical_down_last2.getFxImage());
+                edgeDown.setImg(Sprite.explosionVerticalDownLast_2.getFxImage());
             if (Blocked.block_up_bomb(bomb, bombUp_power))
-                edgeUp.setImg(Sprite.explosion_vertical_top_last2.getFxImage());
+                edgeUp.setImg(Sprite.explosionVerticalTopLast_2.getFxImage());
             if (Blocked.block_left_bomb(bomb, bombLeft_power))
-                edgeLeft.setImg(Sprite.explosion_horizontal_left_last2.getFxImage());
+                edgeLeft.setImg(Sprite.explosionHorizontalLeftLast_2.getFxImage());
             if (Blocked.block_right_bomb(bomb, bombRight_power))
-                edgeRight.setImg(Sprite.explosion_horizontal_right_last2.getFxImage());
+                edgeRight.setImg(Sprite.explosionHorizontalRightLast_2.getFxImage());
             if (isMiddle) {
                 for (Entity e : list1) {
-                    e.setImg(Sprite.explosion_vertical2.getFxImage());
+                    e.setImg(Sprite.explosionVertical_2.getFxImage());
                 }
                 for (Entity e : list) {
-                    e.setImg(Sprite.explosion_horizontal2.getFxImage());
+                    e.setImg(Sprite.explosionHorizontal_2.getFxImage());
                 }
             }
             swapExplosion = 1;
@@ -257,37 +257,37 @@ public class Bomb extends Entity {
                 }
             } else {
                 isBomb = 0;
-                idObjects[bomb.getX() / 32][bomb.getY() / 32] = 0;
-                listKill[bomb.getX() / 32][bomb.getY() / 32] = 0;
-                bomb.setImg(Sprite.transparent.getFxImage());
+                id_Objects[bomb.getX() / 32][bomb.getY() / 32] = 0;
+                list_Kill[bomb.getX() / 32][bomb.getY() / 32] = 0;
+                bomb.setImg(Sprite._transparent.getFxImage());
                 if (Blocked.block_down_bomb(bomb, bombDown_power)) {
-                    edgeDown.setImg(Sprite.transparent.getFxImage());
-                    idObjects[edgeDown.getX() / 32][edgeDown.getY() / 32] = 0;
-                    listKill[edgeDown.getX() / 32][edgeDown.getY() / 32] = 0;
+                    edgeDown.setImg(Sprite._transparent.getFxImage());
+                    id_Objects[edgeDown.getX() / 32][edgeDown.getY() / 32] = 0;
+                    list_Kill[edgeDown.getX() / 32][edgeDown.getY() / 32] = 0;
                 }
-                if (Blocked.block_up_bomb(bomb, powerBombUp)) {
-                    edgeUp.setImg(Sprite.transparent.getFxImage());
-                    idObjects[edgeUp.getX() / 32][edgeUp.getY() / 32] = 0;
-                    listKill[edgeUp.getX() / 32][edgeUp.getY() / 32] = 0;
+                if (Blocked.block_up_bomb(bomb, bombUp_power)) {
+                    edgeUp.setImg(Sprite._transparent.getFxImage());
+                    id_Objects[edgeUp.getX() / 32][edgeUp.getY() / 32] = 0;
+                    list_Kill[edgeUp.getX() / 32][edgeUp.getY() / 32] = 0;
                 }
                 if (Blocked.block_left_bomb(bomb, bombLeft_power)) {
-                    edgeLeft.setImg(Sprite.transparent.getFxImage());
-                    idObjects[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 0;
-                    listKill[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 0;
+                    edgeLeft.setImg(Sprite._transparent.getFxImage());
+                    id_Objects[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 0;
+                    list_Kill[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 0;
                 }
                 if (Blocked.block_right_bomb(bomb, bombRight_power)) {
-                    edgeRight.setImg(Sprite.transparent.getFxImage());
-                    idObjects[edgeRight.getX() / 32][edgeRight.getY() / 32] = 0;
-                    listKill[edgeRight.getX() / 32][edgeRight.getY() / 32] = 0;
+                    edgeRight.setImg(Sprite._transparent.getFxImage());
+                    id_Objects[edgeRight.getX() / 32][edgeRight.getY() / 32] = 0;
+                    list_Kill[edgeRight.getX() / 32][edgeRight.getY() / 32] = 0;
                 }
                 if (isMiddle) {
                     for (Entity e : list1) {
-                        listKill[e.getX() / 32][e.getY() / 32] = 0;
-                        idObjects[e.getX() / 32][e.getY() / 32] = 0;
+                        list_Kill[e.getX() / 32][e.getY() / 32] = 0;
+                        id_Objects[e.getX() / 32][e.getY() / 32] = 0;
                     }
                     for (Entity e : list) {
-                        listKill[e.getX() / 32][e.getY() / 32] = 0;
-                        idObjects[e.getX() / 32][e.getY() / 32] = 0;
+                        list_Kill[e.getX() / 32][e.getY() / 32] = 0;
+                        id_Objects[e.getX() / 32][e.getY() / 32] = 0;
                     }
                 }
                 block.removeAll(list);
