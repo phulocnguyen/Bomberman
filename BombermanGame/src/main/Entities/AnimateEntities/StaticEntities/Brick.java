@@ -5,6 +5,8 @@ import main.Entities.AnimateEntities.StaticEntities.StaticEntity;
 import main.Graphics.Sprite;
 import static main.BombermanGame.*;
 
+import javax.swing.text.html.parser.Entity;
+
 public class Brick extends StaticEntity {
     
     public Brick(int x, int y, Image img) {
@@ -14,8 +16,8 @@ public class Brick extends StaticEntity {
     private void checkHidden() {
         for (StaticEntity entity : block) {
             if (entity instanceof Brick)
-                if (listKill[entity.getX() / 32][entity.getY() / 32] == 4) {
-                    entity.setImg(Sprite.Grass.getFxImage());
+                if (list_Kill[entity.getX() / 32][entity.getY() / 32] == 4) {
+                    entity.setImg(Sprite.grass.getFxImage());
                 }
         }
     }

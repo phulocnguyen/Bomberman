@@ -1,9 +1,8 @@
 package main.Entities.Items;
 
-import javax.swing.text.html.parser.Entity;
 
 import javafx.scene.image.Image;
-import main.Entities.Items.Item;
+
 
 public class SpeedItem extends Item {
     public static int speed = 1;
@@ -20,11 +19,11 @@ public class SpeedItem extends Item {
         this.gained = gained;
     }
 
-    public void update() {
-        for (Entity entity : block) {
-            //if (entity instanceof SpeedItem && !this.gained) {
+    // public void update() {
+    //     for (Entity entity : block) {
+    //         //if (entity instanceof SpeedItem && !this.gained) {
             
             
-        }
-    }
+    //     }
+    // }
 }

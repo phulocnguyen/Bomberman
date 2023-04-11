@@ -42,8 +42,8 @@ public class Bomber extends DynamicEntity {
     }
 
     private void checkBomb() {
-        if (listKill[player.getX() / 32][player.getY() / 32] == 4)
-            player.setAlife(false);
+        if (list_Kill[player.getX() / 32][player.getY() / 32] == 4)
+            player.setAlive(false);
     }
 
     private void checkEnemy() {
@@ -55,7 +55,7 @@ public class Bomber extends DynamicEntity {
             if (ax == bx && ay == by
                     || ax == bx && ay == by + 1 || ax == bx && ay == by - 1
                     || ay == by && ax == bx + 1 || ay == by && ax == bx - 1) {
-                player.life = false;
+                player.alive = false;
                 break;
             }
         }
@@ -70,7 +70,7 @@ public class Bomber extends DynamicEntity {
                     || ax == de.getX() && ay == de.getY() + 32
                     || ay == de.getY() && ax == de.getX() - 32
                     || ay == de.getY() && ax == de.getX() + 32) {
-                player.life = false;
+                player.alive = false;
                 break;
             }
     }
@@ -83,7 +83,7 @@ public class Bomber extends DynamicEntity {
             int by = de.getY();
             if (ax == bx && by - 32 <= ay && by + 32 >= ay
                     || ay == by && bx - 32 <= ax && bx + 32 >= ax) {
-                player.life = false;
+                player.alive = false;
                 break;
             }
         }
@@ -94,7 +94,7 @@ public class Bomber extends DynamicEntity {
         checkBomb();
         checkEnemy3();
         countKill++;
-        if (!player.life)
+        if (!player.alive)
             killBomber(player);
     }
 
