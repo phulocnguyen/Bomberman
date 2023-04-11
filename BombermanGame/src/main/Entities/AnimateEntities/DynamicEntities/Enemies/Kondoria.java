@@ -1,5 +1,5 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies;
 
-public class Balloon {
+public class Kondoria {
     
 }
