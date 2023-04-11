@@ -23,9 +23,9 @@ public class CreateMap {
             String line = sc.nextLine();
 
             StringTokenizer tokens = new StringTokenizer(line);
-            *level = Integer.parseInt(tokens.nextToken());
-            *height = Integer.parseInt(tokens.nextToken());
-            *width = Integer.parseInt(tokens.nextToken());
+            level = Integer.parseInt(tokens.nextToken());
+            height = Integer.parseInt(tokens.nextToken());
+            width = Integer.parseInt(tokens.nextToken());
 
             while (sc.hasNextLine()) {
                 id_Objects = new int[*width][*height];
