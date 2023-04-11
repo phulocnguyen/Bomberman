@@ -59,11 +59,12 @@ public class CreateMap {
                         }
                         id_Objects[j][i] = lm;
                         StaticEntity.add(entity);
-
                     }
-
                 }
             }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
