@@ -58,7 +58,7 @@ public class CreateMap {
                                 entity = new Grass(j, i, Sprite.grass.getFxImage());
                         }
                         id_Objects[j][i] = lm;
-                        StaticEntity.add(entity);
+                        bLock.add(entity);
                     }
                 }
             }
