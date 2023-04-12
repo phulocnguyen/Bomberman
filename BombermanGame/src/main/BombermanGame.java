@@ -22,6 +22,12 @@ import main.Entities.AnimateEntities.StaticEntities.Portal;
 import main.Entities.AnimateEntities.Bomb;
 import main.Graphics.Sprite;
 
+import static main.Levels.NextLevel.*;
+import static main.Control.Menu.*;
+import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
+import static main.Utility.SoundManager.updateSound;
+
+
 
 public class BombermanGame extends Application {
 
@@ -165,7 +171,7 @@ public class BombermanGame extends Application {
         long now = System.currentTimeMillis();
         if (now - lastTime > 1000) {
             lastTime = System.currentTimeMillis();
-            mainStage.setTitle("Bomberman from Son Tran | " + frame + " frame");
+            mainStage.setTitle("Bomberman | " + frame + " frame");
             frame = 0;
 
             time.setText("Time: " + timeNumber);

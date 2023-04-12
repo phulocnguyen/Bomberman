@@ -6,6 +6,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "BombermanGame",
+            "request": "launch",
+            "mainClass": "main.BombermanGame",
+            "projectName": "Bomberman_79e07d8"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "main.Test",
+            "projectName": "Bomberman_79e07d8",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "Test",
             "request": "launch",
             "mainClass": "main.Test",
@@ -17,7 +32,8 @@
             "name": "Test",
             "request": "launch",
             "mainClass": "Test",
-            "projectName": "Bomberman_ced31e97"
+            "projectName": "Bomberman_ced31e97",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
         },
         {
             "type": "java",

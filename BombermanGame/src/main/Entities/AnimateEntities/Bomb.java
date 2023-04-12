@@ -251,7 +251,7 @@ public class Bomb extends Entity {
                             isMiddle = true;
                         }
                     }
-                    new SoundManager("sound/bomb_explosion.wav", "explosion");
+                    //new SoundManager("sound/bomb_explosion.wav", "explosion");
                     explodeCenter();
                     tmpTime += 100;
                 }

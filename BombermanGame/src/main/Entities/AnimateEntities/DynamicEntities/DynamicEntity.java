@@ -2,7 +2,6 @@ package main.Entities.AnimateEntities.DynamicEntities;
 
 import javafx.scene.image.Image;
 import main.Entities.*;
-import main.Entities.AnimateEntities.AnimateEntity;
 
 public abstract class DynamicEntity extends Entity {
     protected int swap;

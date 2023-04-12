@@ -14,7 +14,7 @@ public class Move {
             setDirection(animal.getDirection(), animal, 8 * speed);
             animal.setCount(animal.getCount() - 1);
         }
-        if ((animal instanceof Balloom || animal instanceof Oneal
+        if ((animal instanceof Ballom || animal instanceof Oneal
                 || animal instanceof Doll || animal instanceof Kondoria)
                 && animal.getCount() > 0) {
             setDirection(animal.getDirection(), animal, 4);
@@ -50,7 +50,7 @@ public class Move {
                 animal.setCount(4 / speed);
                 checkRun(animal);
             }
-            if ((animal instanceof Balloom || animal instanceof Oneal || animal instanceof Doll)
+            if ((animal instanceof Ballom || animal instanceof Oneal || animal instanceof Doll)
                     && Blocked.block_down(animal)) {
                 animal.setDirection("down");
                 animal.setCount(8);
@@ -75,7 +75,7 @@ public class Move {
                 animal.setSwap(1);
             }
         }
-        if (animal instanceof Balloom && animal.getY() % 8 == 0) {
+        if (animal instanceof Ballom && animal.getY() % 8 == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.ballomRight_1.getFxImage());
                 animal.setSwap(2);
@@ -129,7 +129,7 @@ public class Move {
                 animal.setCount(4 / speed);
                 checkRun(animal);
             }
-            if ((animal instanceof Balloom || animal instanceof Oneal || animal instanceof Doll)
+            if ((animal instanceof Ballom || animal instanceof Oneal || animal instanceof Doll)
                     && Blocked.block_up(animal)) {
                 animal.setDirection("up");
                 animal.setCount(8);
@@ -154,7 +154,7 @@ public class Move {
                 animal.setSwap(1);
             }
         }
-        if (animal instanceof Balloom && animal.getY() % 8 == 0) {
+        if (animal instanceof Ballom && animal.getY() % 8 == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.ballomLeft_1.getFxImage());
                 animal.setSwap(2);
@@ -208,7 +208,7 @@ public class Move {
                 animal.setCount(4 / speed);
                 checkRun(animal);
             }
-            if ((animal instanceof Balloom || animal instanceof Oneal
+            if ((animal instanceof Ballom || animal instanceof Oneal
                     || animal instanceof Doll || animal instanceof Kondoria)
                     && Blocked.block_left(animal)) {
                 animal.setDirection("left");
@@ -234,7 +234,7 @@ public class Move {
                 animal.setSwap(1);
             }
         }
-        if (animal instanceof Balloom && animal.getY() % 8 == 0) {
+        if (animal instanceof Ballom && animal.getY() % 8 == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.ballomRight_1.getFxImage());
                 animal.setSwap(2);
@@ -303,7 +303,7 @@ public class Move {
                 animal.setCount(4 / speed);
                 checkRun(animal);
             }
-            if ((animal instanceof Balloom || animal instanceof Oneal
+            if ((animal instanceof Ballom || animal instanceof Oneal
                     || animal instanceof Doll || animal instanceof Kondoria)
                     && Blocked.block_right(animal)) {
                 animal.setDirection("right");
@@ -330,7 +330,7 @@ public class Move {
             }
         }
 
-        if (animal instanceof Balloom && animal.getY() % 8 == 0) {
+        if (animal instanceof Ballom && animal.getY() % 8 == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.ballomLeft_1.getFxImage());
                 animal.setSwap(2);
