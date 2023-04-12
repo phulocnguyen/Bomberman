@@ -23,20 +23,20 @@ public class CreateMap {
             String line = sc.nextLine();
 
             StringTokenizer tokens = new StringTokenizer(line);
-            level = Integer.parseInt(tokens.nextToken());
+            _level = Integer.parseInt(tokens.nextToken());
             height = Integer.parseInt(tokens.nextToken());
             width = Integer.parseInt(tokens.nextToken());
 
             while (sc.hasNextLine()) {
-                id_Objects = new int[*width][*height];
-                list_Kill = new int[*width][*height];
-                for(int i = 0; i < *height; ++i) {
+                id_Objects = new int[width][height];
+                list_Kill = new int[width][height];
+                for(int i = 0; i < height; ++i) {
                     String line_Tile = sc.nextLine();
                     StringTokenizer token_Tile = new StringTokenizer(line_Tile);
 
-                    for(int j = 0; j < *width; j++) {
+                    for(int j = 0; j < width; j++) {
                         int lm = Integer.parseInt(token_Tile.nextToken());
-                        Entity entity;
+                        StaticEntity entity;
                         switch (lm) {
                             case 1:
                                 entity = new Portal(j, i, Sprite.grass.getFxImage());
@@ -58,7 +58,7 @@ public class CreateMap {
                                 entity = new Grass(j, i, Sprite.grass.getFxImage());
                         }
                         id_Objects[j][i] = lm;
-                        bLock.add(entity);
+                        block.add(entity);
                     }
                 }
             }

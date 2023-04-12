@@ -33,7 +33,7 @@ public class BombermanGame extends Application {
     public static final int HEIGHT = 15;
     public static int width = 0;
     public static int height = 0;
-    public static int level = 1;
+    public static int _level = 1;
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
     public static List<DynamicEntity> enemy = new ArrayList<>();       //Contains enemy entities
