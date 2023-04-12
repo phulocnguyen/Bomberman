@@ -94,7 +94,7 @@ public class Bomber extends DynamicEntity {
         checkBomb();
         checkEnemy3();
         countKill++;
-        if (!player.alive)
+        if (!player.isAlive())
             killBomber(player);
     }
 
