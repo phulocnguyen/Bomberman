@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
-        "BombermanGame\\src"
+        "BombermanGame/src",
+        "BombermanGame/res"
     ],
-    "java.project.outputPath": "BombermanGame\\bin",
+    "java.project.outputPath": "BombermanGame/bin",
     "java.project.referencedLibraries": [
         "lib/**/*.jar",
         "javaFX/lib/javafx.base.jar",

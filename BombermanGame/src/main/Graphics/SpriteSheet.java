@@ -1,7 +1,6 @@
 package main.Graphics;
 
 import javax.imageio.ImageIO;
-import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
@@ -12,7 +11,7 @@ public class SpriteSheet {
     public int[] pixels;
     public BufferedImage image;
 
-    public static SpriteSheet _tiles = new SpriteSheet("/textures/classic.png", 256);
+    public static SpriteSheet _tiles = new SpriteSheet("res/textures/classic.png", 256);
 
     public SpriteSheet(String _path, int _size) {
         path = _path;

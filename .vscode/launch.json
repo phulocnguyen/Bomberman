@@ -6,6 +6,21 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "main.Test",
+            "projectName": "Bomberman_ced31e97",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
+            "name": "Test",
+            "request": "launch",
+            "mainClass": "Test",
+            "projectName": "Bomberman_ced31e97"
+        },
+        {
+            "type": "java",
             "name": "TestJavaFX",
             "request": "launch",
             "mainClass": "main.Entities.TestJavaFX",
