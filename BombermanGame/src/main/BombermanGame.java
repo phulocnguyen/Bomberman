@@ -43,8 +43,8 @@ public class BombermanGame extends Application {
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
     public static List<DynamicEntity> enemy = new ArrayList<>();       //Contains enemy entities
-    public static int[][] id_Objects;    //Two-dimensional array is used to test paths
-    public static int[][] list_Kill;     //Array containing dead positions
+    public static int[][] id_Objects = new int[WIDTH][HEIGHT];    //Two-dimensional array is used to test paths
+    public static int[][] list_Kill = new int[WIDTH][HEIGHT];     //Array containing dead positions
     public static DynamicEntity player;
     public static boolean running;
     public static ImageView authorView;
@@ -76,7 +76,7 @@ public class BombermanGame extends Application {
         Group root = new Group();
         Menu.createMenu(root);
         root.getChildren().add(canvas);
-        root.getChildren().add(authorView);
+        //root.getChildren().add(authorView);
 
         Scene scene = new Scene(root);
 
@@ -102,9 +102,9 @@ public class BombermanGame extends Application {
         });
 
         stage.setScene(scene);
-        stage.setTitle("Bomberman from Son Tran");
+        stage.setTitle("Bomberman");
         Image icon = new Image("images/ttsalpha4.0@0.5x.png");
-        stage.getIcons().add(icon);
+        //stage.getIcons().add(icon);
         mainStage = stage;
         mainStage.show();
 
@@ -112,7 +112,7 @@ public class BombermanGame extends Application {
 
         AnimationTimer timer = new AnimationTimer() {
             @Override
-            public void handle(long l) {
+            public void handle(long arg0) {
                 if (running) {
                     render();
                     update();

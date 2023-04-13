@@ -21,7 +21,7 @@ public class Level1 {
         block.clear();
         swapKill = 1; 
         bomb_power = 0; 
-        new CreateMap("levels/Level1.txt");
+        new CreateMap("BombermanGame/src/res/levels/Level1.txt");
         player.setAlive(true);
         player.setX(32);
         player.setY(32);

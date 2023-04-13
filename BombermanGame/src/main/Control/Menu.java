@@ -66,7 +66,7 @@ public class Menu {
 
         if (player.isAlive())
             if (running) {
-                    Image pauseGame = new Image("images/pauseGame.png");
+                Image pauseGame = new Image("images/pauseGame.png");
                 statusGame.setImage(pauseGame);
             } else {
                 Image playGame = new Image("images/playGame.png");

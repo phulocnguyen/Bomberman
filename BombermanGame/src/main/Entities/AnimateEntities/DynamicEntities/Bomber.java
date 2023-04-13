@@ -97,6 +97,4 @@ public class Bomber extends DynamicEntity {
         if (!player.isAlive())
             killBomber(player);
     }
-
-    
 }
