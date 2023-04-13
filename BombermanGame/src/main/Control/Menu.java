@@ -18,23 +18,23 @@ public class Menu {
     public static int bombNumber = 20, timeNumber = 120;
 
     public static void createMenu(Group root) {
-        level = new Text("Level: 0");
+        level = new Text("Level: 1");
         level.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         level.setFill(Color.WHITE);
         level.setX(416);
         level.setY(20);
-        bomb = new Text("Bombs: 0");
+        bomb = new Text("Bombs: 20");
         bomb.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         bomb.setFill(Color.WHITE);
         bomb.setX(512);
         bomb.setY(20);
-        time = new Text("Times: 0");
+        time = new Text("Times: 120");
         time.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         time.setFill(Color.WHITE);
         time.setX(608);
         time.setY(20);
 
-        Image newGame = new Image("res/images/newGame.png");
+        Image newGame = new Image("images/newGame.png");
         statusGame = new ImageView(newGame);
         statusGame.setX(-75);
         statusGame.setY(-10);
@@ -66,14 +66,14 @@ public class Menu {
 
         if (player.isAlive())
             if (running) {
-                    Image pauseGame = new Image("res/images/pauseGame.png");
+                    Image pauseGame = new Image("images/pauseGame.png");
                 statusGame.setImage(pauseGame);
             } else {
-                Image playGame = new Image("res/images/playGame.png");
+                Image playGame = new Image("images/playGame.png");
                 statusGame.setImage(playGame);
             }
         else {
-            Image newGame = new Image("res/images/newGame.png");
+            Image newGame = new Image("images/newGame.png");
             statusGame.setImage(newGame);
         }
     }

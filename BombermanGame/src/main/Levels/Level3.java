@@ -21,7 +21,7 @@ public class Level3 {
         enemy.clear();
         block.clear();
         swapKill = 1;
-        new CreateMap("res/levels/Level3.txt");
+        new CreateMap("levels/Level3.txt");
         player.setAlive(true);
         player.setX(32);
         player.setY(32);
@@ -33,7 +33,7 @@ public class Level3 {
         isBomb = 0;
 
         player.setImg(Sprite.playerRight_2.getFxImage());
-        Image transparent = new Image("res/images/transparent.png");
+        Image transparent = new Image("images/transparent.png");
         authorView.setImage(transparent);
 
         DynamicEntity enemy1 = new Ballom(5, 5, Sprite.ballomLeft_1.getFxImage());
