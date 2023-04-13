@@ -11,7 +11,7 @@ public class SpriteSheet {
     public int[] pixels;
     public BufferedImage image;
 
-    public static SpriteSheet _tiles = new SpriteSheet("res/textures/classic.png", 256);
+    public static SpriteSheet _tiles = new SpriteSheet("textures/classic.png", 256);
 
     public SpriteSheet(String _path, int _size) {
         path = _path;
@@ -28,6 +28,7 @@ public class SpriteSheet {
             int _h = image.getHeight();
             image.getRGB(0, 0, _w, _h, pixels, 0, _w);
         } catch (IOException l) {
+            System.out.println(l.getMessage());
             l.printStackTrace();
             System.exit(0);
         }
