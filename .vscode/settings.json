@@ -1,7 +1,7 @@
 {
     "java.project.sourcePaths": [
         "BombermanGame/src",
-        "BombermanGame/res"
+        "BombermanGame/src/res"
     ],
     "java.project.outputPath": "BombermanGame/bin",
     "java.project.referencedLibraries": [

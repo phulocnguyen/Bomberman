@@ -67,7 +67,11 @@ public class BombermanGame extends Application {
         canvas = new Canvas(Sprite.scaledSize * WIDTH, Sprite.scaledSize * HEIGHT);
         canvas.setTranslateY(32);
         gc = canvas.getGraphicsContext2D();
+<<<<<<< HEAD
         Image author = new Image("res/images/author.png");
+=======
+        Image author = new Image("images/playGame.png");
+>>>>>>> 3572188f73103c8e3291336b21ebec7f37803bc8
         authorView = new ImageView(author);
         authorView.setX(-400);
         authorView.setY(-208);
@@ -103,8 +107,13 @@ public class BombermanGame extends Application {
 
         stage.setScene(scene);
         stage.setTitle("Bomberman Game");
+<<<<<<< HEAD
         Image icon = new Image("res/images/ttsalpha4.0@0.5x.png");
         stage.getIcons().add(icon);
+=======
+        // Image icon = new Image("images/playG.png");
+        // stage.getIcons().add(icon);
+>>>>>>> 3572188f73103c8e3291336b21ebec7f37803bc8
         mainStage = stage;
         mainStage.show();
 
