@@ -171,7 +171,7 @@ public class BombermanGame extends Application {
         long now = System.currentTimeMillis();
         if (now - lastTime > 1000) {
             lastTime = System.currentTimeMillis();
-            mainStage.setTitle("Bomberman from Son Tran | " + frame + " frame");
+            mainStage.setTitle("Bomberman | " + frame + " frame");
             frame = 0;
 
             time.setText("Time: " + timeNumber);
