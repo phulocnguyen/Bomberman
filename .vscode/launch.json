@@ -9,7 +9,9 @@
             "name": "BombermanGame",
             "request": "launch",
             "mainClass": "main.BombermanGame",
-            "projectName": "Bomberman_79e07d8"
+            "projectName": "Bomberman_79e07d8",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+
         },
         {
             "type": "java",
