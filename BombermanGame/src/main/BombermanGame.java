@@ -43,8 +43,8 @@ public class BombermanGame extends Application {
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
     public static List<DynamicEntity> enemy = new ArrayList<>();       //Contains enemy entities
-    public static int[][] id_Objects = new int[WIDTH][HEIGHT];    //Two-dimensional array is used to test paths
-    public static int[][] list_Kill = new int[WIDTH][HEIGHT];     //Array containing dead positions
+    public static int[][] id_Objects;    //Two-dimensional array is used to test paths
+    public static int[][] list_Kill;     //Array containing dead positions
     public static DynamicEntity player;
     public static boolean running;
     public static ImageView authorView;
