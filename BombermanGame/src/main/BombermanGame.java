@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import main.Control.Menu;
 import main.Control.Move;
 import main.Entities.Entity;
-import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
+import main.Entities.AnimateEntities.DynamicEntities.*;
 import main.Entities.AnimateEntities.DynamicEntities.Bomber;
 import main.Entities.AnimateEntities.StaticEntities.Portal;
 import main.Entities.AnimateEntities.Bomb;
@@ -37,8 +37,8 @@ public class BombermanGame extends Application {
      */
     public static final int WIDTH = 25;
     public static final int HEIGHT = 15;
-    public static int width = 0;
-    public static int height = 0;
+    public static int _width = 0;
+    public static int _height = 0;
     public static int _level = 1;
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
@@ -102,9 +102,14 @@ public class BombermanGame extends Application {
         });
 
         stage.setScene(scene);
-        stage.setTitle("Bomberman Game");
+        stage.setTitle("Bomberman from Son Tran");
         Image icon = new Image("images/ttsalpha4.0@0.5x.png");
         stage.getIcons().add(icon);
+        mainStage = stage;
+        mainStage.show();
+
+        lastTime = System.currentTimeMillis();
+
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long l) {
@@ -142,7 +147,7 @@ public class BombermanGame extends Application {
         }
 
         if (enemy.size() == 0 && !isPortal && !wait) {
-            Entity portal = new Portal(width - 2, height - 2, Sprite.portal.getFxImage());
+            Entity portal = new Portal(_width - 2, _height - 2, Sprite.portal.getFxImage());
             block.add(portal);
             if (player.getX() / 32 == portal.getX() / 32 && player.getY() / 32 == portal.getY() / 32) {
                 wait = true;
@@ -166,7 +171,7 @@ public class BombermanGame extends Application {
         long now = System.currentTimeMillis();
         if (now - lastTime > 1000) {
             lastTime = System.currentTimeMillis();
-            mainStage.setTitle("Bomberman | " + frame + " frame");
+            mainStage.setTitle("Bomberman from Son Tran | " + frame + " frame");
             frame = 0;
 
             time.setText("Time: " + timeNumber);

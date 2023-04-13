@@ -52,7 +52,7 @@ public class Kondoria extends DynamicEntity {
         }
 
         if (this.y % 16 == 0 && this.x % 16 == 0) {
-            if (this.x / 32 <= 1 || this.x / 32 >= width - 2)
+            if (this.x / 32 <= 1 || this.x / 32 >= _width - 2)
                 dir = !dir;
 
             if (dir)

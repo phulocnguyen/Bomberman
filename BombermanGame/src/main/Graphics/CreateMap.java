@@ -23,17 +23,17 @@ public class CreateMap {
 
             StringTokenizer tokens = new StringTokenizer(line);
             _level = Integer.parseInt(tokens.nextToken());
-            height = Integer.parseInt(tokens.nextToken());
-            width = Integer.parseInt(tokens.nextToken());
+            _height = Integer.parseInt(tokens.nextToken());
+            _width = Integer.parseInt(tokens.nextToken());
 
             while (sc.hasNextLine()) {
-                id_Objects = new int[width][height];
-                list_Kill = new int[width][height];
-                for(int i = 0; i < height; ++i) {
+                id_Objects = new int[_width][_height];
+                list_Kill = new int[_width][_height];
+                for(int i = 0; i < _height; ++i) {
                     String line_Tile = sc.nextLine();
                     StringTokenizer token_Tile = new StringTokenizer(line_Tile);
 
-                    for(int j = 0; j < width; j++) {
+                    for(int j = 0; j < _width; j++) {
                         int lm = Integer.parseInt(token_Tile.nextToken());
                         Entity entity;
                         switch (lm) {
