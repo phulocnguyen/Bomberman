@@ -10,6 +10,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import static main.BombermanGame.*;
+import main.Levels.*;
 
 public class Menu {
     private static ImageView statusGame;
@@ -52,7 +53,7 @@ public class Menu {
             if (player.isAlive()) {
                 running = !running;
             } else {
-                //new Level1();
+                new Level1();
                 running = true;
             }
             updateMenu();

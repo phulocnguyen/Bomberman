@@ -37,7 +37,7 @@ public class Level1 {
         speed = 1;
 
         player.setImg(Sprite.playerRight_2.getFxImage());
-        Image transparent = new Image("images/transparent.png");
+        Image transparent = new Image("res/images/transparent.png");
         authorView.setImage(transparent);
 
         DynamicEntity enemy_1 = new Ballom(4, 4, Sprite.ballomLeft_1.getFxImage());

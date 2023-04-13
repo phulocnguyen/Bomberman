@@ -37,7 +37,7 @@ public class Level2 {
         isBomb = 0;
 
         player.setImg(Sprite.playerRight_2.getFxImage());
-        Image transparent = new Image("images/transparent.png");
+        Image transparent = new Image("res/images/transparent.png");
         authorView.setImage(transparent);
 
         DynamicEntity enemy_1 = new Ballom(5, 5, Sprite.ballomLeft_1.getFxImage());

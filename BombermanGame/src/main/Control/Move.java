@@ -1,6 +1,5 @@
 package main.Control;
 
-import main.Entities.AnimateEntities.*;
 import main.Entities.AnimateEntities.DynamicEntities.*;
 import main.Entities.AnimateEntities.DynamicEntities.Enemies.*;
 import main.Graphics.Sprite;
