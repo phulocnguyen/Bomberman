@@ -259,24 +259,24 @@ public class Bomb extends Entity {
                 isBomb = 0;
                 id_Objects[bomb.getX() / 32][bomb.getY() / 32] = 0;
                 list_Kill[bomb.getX() / 32][bomb.getY() / 32] = 0;
-                bomb.setImg(Sprite._transparent.getFxImage());
+                bomb.setImg(Sprite.transparent.getFxImage());
                 if (Blocked.block_down_bomb(bomb, bombDown_power)) {
-                    edgeDown.setImg(Sprite._transparent.getFxImage());
+                    edgeDown.setImg(Sprite.transparent.getFxImage());
                     id_Objects[edgeDown.getX() / 32][edgeDown.getY() / 32] = 0;
                     list_Kill[edgeDown.getX() / 32][edgeDown.getY() / 32] = 0;
                 }
                 if (Blocked.block_up_bomb(bomb, bombUp_power)) {
-                    edgeUp.setImg(Sprite._transparent.getFxImage());
+                    edgeUp.setImg(Sprite.transparent.getFxImage());
                     id_Objects[edgeUp.getX() / 32][edgeUp.getY() / 32] = 0;
                     list_Kill[edgeUp.getX() / 32][edgeUp.getY() / 32] = 0;
                 }
                 if (Blocked.block_left_bomb(bomb, bombLeft_power)) {
-                    edgeLeft.setImg(Sprite._transparent.getFxImage());
+                    edgeLeft.setImg(Sprite.transparent.getFxImage());
                     id_Objects[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 0;
                     list_Kill[edgeLeft.getX() / 32][edgeLeft.getY() / 32] = 0;
                 }
                 if (Blocked.block_right_bomb(bomb, bombRight_power)) {
-                    edgeRight.setImg(Sprite._transparent.getFxImage());
+                    edgeRight.setImg(Sprite.transparent.getFxImage());
                     id_Objects[edgeRight.getX() / 32][edgeRight.getY() / 32] = 0;
                     list_Kill[edgeRight.getX() / 32][edgeRight.getY() / 32] = 0;
                 }

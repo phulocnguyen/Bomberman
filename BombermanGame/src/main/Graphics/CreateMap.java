@@ -2,7 +2,6 @@ package main.Graphics;
 
 import main.Entities.AnimateEntities.StaticEntities.*;
 import main.Entities.Entity;
-import main.Entities.*;
 import main.Entities.Items.FlameItem;
 import main.Entities.Items.SpeedItem;
 

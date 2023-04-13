@@ -6,31 +6,31 @@ import java.io.IOException;
 import java.net.URL;
 
 public class SpriteSheet {
-    private String path; //_path;
-    public final int size;
-    public int[] pixels;
-    public BufferedImage image;
 
-    public static SpriteSheet _tiles = new SpriteSheet("textures/classic.png", 256);
+	private String _path;
+	public final int SIZE;
+	public int[] _pixels;
+	public BufferedImage image;
 
-    public SpriteSheet(String _path, int _size) {
-        path = _path;
-        size =  _size;
-        pixels = new int[size * size];
-        _load();
-    }
-
-    private void _load() {
-        try {
-            URL lam = SpriteSheet.class.getResource(path);
-            image = ImageIO.read(lam);
-            int _w = image.getWidth();
-            int _h = image.getHeight();
-            image.getRGB(0, 0, _w, _h, pixels, 0, _w);
-        } catch (IOException l) {
-            System.out.println(l.getMessage());
-            l.printStackTrace();
-            System.exit(0);
-        }
-    }
+	public static SpriteSheet _tiles = new SpriteSheet("/textures/classic.png", 256);
+	
+	public SpriteSheet(String path, int size) {
+		_path = path;
+		SIZE = size;
+		_pixels = new int[SIZE * SIZE];
+		load();
+	}
+	
+	private void load() {
+		try {
+			URL a = SpriteSheet.class.getResource(_path);
+			image = ImageIO.read(a);
+			int w = image.getWidth();
+			int h = image.getHeight();
+			image.getRGB(0, 0, w, h, _pixels, 0, w);
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
 }

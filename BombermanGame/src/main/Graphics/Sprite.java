@@ -1,22 +1,21 @@
 package main.Graphics;
-
 import javafx.scene.image.*;
 
-
 public class Sprite {
+
     public static final int defaultSize = 16;
     public static final int scaledSize = defaultSize * 2;
-    private static final int transparentColor = 0xffff00ff;
-    public final int size;
+    private static final int TRANSPARENT_COLOR = 0xffff00ff;
+    public final int SIZE;
+    
+    private int _x, _y;
+    public int[] _pixels;
+    protected int _realWidth;
+    protected int _realHeight;
+    private SpriteSheet _sheet;
+    public static Sprite transparent = new Sprite(defaultSize, 15, 15, SpriteSheet._tiles, 16, 16);
 
-    private int x, y;
-    public int[] pixels;
-    protected int realWidth; //_realWidth
-    protected int realHeight; //_realHeight
-    private SpriteSheet sheet;
-    public static Sprite _transparent = new Sprite(defaultSize, 15, 15, SpriteSheet._tiles, 16, 16);
-
-    /*
+     /*
     |--------------------------------------------------------------------------
     | Board sprites
     |--------------------------------------------------------------------------
@@ -181,78 +180,85 @@ public class Sprite {
     public static Sprite powerupBombpass = new Sprite(defaultSize, 5, 10, SpriteSheet._tiles, 16, 16);
     public static Sprite powerupFlamepass = new Sprite(defaultSize, 6, 10, SpriteSheet._tiles, 16, 16);
 
-    public Sprite(int _size, int _x, int _y, SpriteSheet _sheet, int _rw, int _rh) {
-        this.size = _size;
-        this.x = _x * size;
-        this.y = _y * size;
-        this.sheet = _sheet;
-        this.realHeight = _rh;
-        this.realWidth = _rw;
-        _load();
+    public Sprite(int size, int x, int y, SpriteSheet sheet, int rw, int rh) {
+        SIZE = size;
+        _pixels = new int[SIZE * SIZE];
+        _x = x * SIZE;
+        _y = y * SIZE;
+        _sheet = sheet;
+        _realWidth = rw;
+        _realHeight = rh;
+        load();
     }
 
-    public Sprite(int _size, int _color) {
-        size = _size;
-        pixels = new int[size * size];
-        setColor(_color);
+    public Sprite(int size, int color) {
+        SIZE = size;
+        _pixels = new int[SIZE * SIZE];
+        setColor(color);
     }
-    private void setColor(int _color) {
-        for(int i = 0; i < pixels.length; i++) {
-            pixels[i] = _color;
+
+    private void setColor(int color) {
+        for (int i = 0; i < _pixels.length; i++) {
+            _pixels[i] = color;
         }
     }
 
-    private void _load() {
-        for (int _y = 0; _y < size; _y++) {
-            for (int _x = 0; _x < size; _x++) {
-                pixels[_x + _y * size] = sheet.pixels[(_x + x) + (_y + y) * sheet.size];
+    private void load() {
+        for (int y = 0; y < SIZE; y++) {
+            for (int x = 0; x < SIZE; x++) {
+                _pixels[x + y * SIZE] = _sheet._pixels[(x + _x) + (y + _y) * _sheet.SIZE];
             }
         }
     }
+
     public int getSize() {
-        return size;
+        return SIZE;
     }
 
     public int getPixel(int i) {
-        return pixels[i];
+        return _pixels[i];
     }
 
     public Image getFxImage() {
-        WritableImage wri = new WritableImage(size, size);
-        PixelWriter pwr = wri.getPixelWriter();
-        for(int i = 0; i < size; i++) {
-            for(int j = 0; j < size; j++) {
-                if(pixels[i + j * size] == transparentColor) {
-                    pwr.setArgb(i, j, 0);
+        WritableImage wr = new WritableImage(SIZE, SIZE);
+        PixelWriter pw = wr.getPixelWriter();
+        for (int x = 0; x < SIZE; x++) {
+            for (int y = 0; y < SIZE; y++) {
+                if (_pixels[x + y * SIZE] == TRANSPARENT_COLOR) {
+                    pw.setArgb(x, y, 0);
                 } else {
-                    pwr.setArgb(i, j, pixels[i + j * size]);
+                    pw.setArgb(x, y, _pixels[x + y * SIZE]);
                 }
             }
         }
-        Image input = new ImageView(wri).getImage();
-        return resimple(input, scaledSize / defaultSize);
+        Image input = new ImageView(wr).getImage();
+        return resample(input, scaledSize / defaultSize);
     }
 
-    private Image resimple(Image input, int scaleFactor) {
-        final int Ww = (int) input.getWidth();
-        final int Hh = (int) input.getHeight();
-        final int Ss = scaleFactor;
+    private Image resample(Image input, int scaleFactor) {
+        final int W = (int) input.getWidth();
+        final int H = (int) input.getHeight();
+        final int S = scaleFactor;
 
-        WritableImage output = new WritableImage(Ww * Ss, Hh * Ss);
+        WritableImage output = new WritableImage(
+                W * S,
+                H * S
+        );
 
         PixelReader reader = input.getPixelReader();
-        PixelWriter writer = (PixelWriter) input.getPixelReader();
+        PixelWriter writer = output.getPixelWriter();
 
-        for(int i = 0; i < Hh; i++) {
-            for(int j = 0; j < Ww; j++) {
-                final int agrb = reader.getArgb(j, i);
-                for(int k = 0; k < Ss; k++) {
-                    for(int l = 0; l < Ss; l++) {
-                        writer.setArgb(j * Ss + l, i * Ss +k, agrb);
+        for (int y = 0; y < H; y++) {
+            for (int x = 0; x < W; x++) {
+                final int argb = reader.getArgb(x, y);
+                for (int dy = 0; dy < S; dy++) {
+                    for (int dx = 0; dx < S; dx++) {
+                        writer.setArgb(x * S + dx, y * S + dy, argb);
                     }
                 }
             }
         }
+
         return output;
     }
 }

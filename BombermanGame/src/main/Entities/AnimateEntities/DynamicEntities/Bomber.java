@@ -33,7 +33,7 @@ public class Bomber extends DynamicEntity {
                 de.setImg(Sprite.playerDead_3.getFxImage());
                 swapKill = 4;
             } else {
-                de.setImg(Sprite._transparent.getFxImage());
+                de.setImg(Sprite.transparent.getFxImage());
                 running = false;
                 Image gameOver = new Image("images/gameOver.png");
                 authorView.setImage(gameOver);
