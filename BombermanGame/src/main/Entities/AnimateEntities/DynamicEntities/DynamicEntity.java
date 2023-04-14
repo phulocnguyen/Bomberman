@@ -1,5 +1,6 @@
 package main.Entities.AnimateEntities.DynamicEntities;
 
+import static main.BombermanGame.*;
 import javafx.scene.image.Image;
 import main.Entities.*;
 
@@ -84,4 +85,11 @@ public abstract class DynamicEntity extends Entity {
 
     }
 
+    public void kill() {
+        for (DynamicEntity animal : enemy) {
+            if (list_Kill[animal.getX() / 32][animal.getY() / 32] == 4) {
+                animal.setAlive(false);
+            }
+        }
+    }
 }

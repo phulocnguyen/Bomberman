@@ -20,8 +20,8 @@ public class Kondoria extends DynamicEntity {
         super(4, 1, "up", 0, 0);
     }
 
-    public Kondoria(boolean alive) {
-        super(alive);
+    public Kondoria(boolean life) {
+        super(life);
     }
 
     public Kondoria() {
@@ -45,6 +45,7 @@ public class Kondoria extends DynamicEntity {
 
     @Override
     public void update() {
+        kill();
         countKill++;
         for (DynamicEntity animal : enemy) {
             if (animal instanceof Kondoria && !animal.isAlive())

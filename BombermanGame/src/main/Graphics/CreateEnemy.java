@@ -1,11 +1,6 @@
 package main.Graphics;
 
 import main.Entities.AnimateEntities.DynamicEntities.Enemies.*;
-import main.Entities.AnimateEntities.StaticEntities.*;
-import main.Entities.Entity;
-import main.Entities.Items.FlameItem;
-import main.Entities.Items.SpeedItem;
-
 import static main.BombermanGame.*;
 
 import java.io.File;

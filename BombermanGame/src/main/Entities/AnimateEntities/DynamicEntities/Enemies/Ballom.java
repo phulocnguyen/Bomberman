@@ -37,14 +37,6 @@ public class Ballom extends DynamicEntity {
         }
     }
 
-    private void kill() {
-        for (DynamicEntity animal : enemy) {
-            if (list_Kill[animal.getX() / 32][animal.getY() / 32] == 4) {
-                animal.setAlive(false);
-            }
-        }
-    }
-
     public Ballom(int x, int y, Image img) {
         super(x, y, img);
     }

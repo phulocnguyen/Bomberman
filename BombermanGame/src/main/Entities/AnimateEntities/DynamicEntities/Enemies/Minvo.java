@@ -45,6 +45,7 @@ public class Minvo extends DynamicEntity {
 
     @Override
     public void update() {
+        kill();
         countKill++;
         for (DynamicEntity animal : enemy) {
             if (animal instanceof Oneal && !animal.isAlive())

@@ -1,9 +1,5 @@
 package main.Entities.Items;
 
-import static main.BombermanGame.*;
-import main.Graphics.Sprite;
-import main.Entities.Entity;
-
 import javafx.scene.image.Image;
 
 public class FlamePassItem extends Item {

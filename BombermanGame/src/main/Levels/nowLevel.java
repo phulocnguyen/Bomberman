@@ -2,7 +2,6 @@ package main.Levels;
 
 import javafx.scene.image.Image;
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
-import main.Entities.AnimateEntities.DynamicEntities.Enemies.Ballom;
 import main.Graphics.CreateEnemy;
 import main.Graphics.CreateMap;
 import main.Graphics.Sprite;

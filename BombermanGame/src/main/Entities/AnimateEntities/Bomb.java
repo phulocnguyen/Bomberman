@@ -7,7 +7,6 @@ import javafx.scene.image.Image;
 import main.Control.*;
 import main.Entities.Entity;
 import main.Graphics.Sprite;
-import main.Utility.SoundManager;
 import static main.BombermanGame.*;
 import static main.Control.Menu.*;
 

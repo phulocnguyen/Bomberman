@@ -35,7 +35,6 @@ public class CreateMap {
 
                     for(int j = 0; j < _width; j++) {
                         int lm = Integer.parseInt(token_Tile.nextToken());
-                        int pos = lm;
                         Entity entity;
                         switch (lm) {
                             case 1:
