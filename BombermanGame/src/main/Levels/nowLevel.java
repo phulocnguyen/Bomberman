@@ -3,6 +3,7 @@ package main.Levels;
 import javafx.scene.image.Image;
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
 import main.Entities.AnimateEntities.DynamicEntities.Enemies.Ballom;
+import main.Graphics.CreateEnemy;
 import main.Graphics.CreateMap;
 import main.Graphics.Sprite;
 
@@ -15,16 +16,17 @@ import static main.Utility.SoundManager.isSoundTitle;
 import static main.Entities.Items.SpeedItem.speed;
 import static main.BombermanGame.*;
 
-public class Level1 {
-    public Level1() {
+public class nowLevel {
+    public nowLevel(int now_level) {
+        String path = "BombermanGame/src/res/levels/Level" + now_level + ".txt";
         enemy.clear();
         block.clear();
         swapKill = 1; 
         bomb_power = 0; 
-        new CreateMap("BombermanGame/src/res/levels/Level1.txt");
+        new CreateMap(path);
         player.setAlive(true);
-        player.setX(32);
-        player.setY(32);
+        player.setX(1 * Sprite.scaledSize);
+        player.setY(1 * Sprite.scaledSize);
         isSoundDied = false; 
         isSoundTitle = false; 
         timeNumber = 120;
@@ -36,14 +38,7 @@ public class Level1 {
         Image transparent = new Image("images/transparent.png");
         authorView.setImage(transparent);
 
-        DynamicEntity enemy_1 = new Ballom(4, 4, Sprite.ballomLeft_1.getFxImage());
-        DynamicEntity enemy_2 = new Ballom(9, 9, Sprite.ballomLeft_1.getFxImage());
-        DynamicEntity enemy_3 = new Ballom(22, 6, Sprite.ballomLeft_1.getFxImage());
-
-        enemy.add(enemy_1);
-        enemy.add(enemy_2);
-        enemy.add(enemy_3);
-
+        new CreateEnemy(path);
         for(DynamicEntity enemy_ : enemy) {
             enemy_.setAlive(true);
         }
