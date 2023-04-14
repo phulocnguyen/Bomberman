@@ -53,7 +53,7 @@ public class Menu {
             if (player.isAlive()) {
                 running = !running;
             } else {
-                new Level1();
+                new Level2();
                 running = true;
             }
             updateMenu();

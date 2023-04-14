@@ -15,6 +15,10 @@ public abstract class Item extends Entity {
 
     }
 
+    public Item(boolean gained) {
+        this.gained = gained;
+    }
+
     public boolean isGained() {
         return gained;
     }
