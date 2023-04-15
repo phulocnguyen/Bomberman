@@ -13,11 +13,11 @@ import static main.Control.Menu.*;
 import static main.BombermanGame.*;
 
 import main.Levels.*;
-public class StartMenu {
+public class EndMenu {
     private static ImageView MenuNewGame;
     public static Text status;
     
-    public static void createStartMenu(Group root) {
+    public static void createEndMenu(Group root) {
         Image newGame1 = new Image("images/newGame.png");
         MenuNewGame = new ImageView(newGame1);
         MenuNewGame.setX(39);

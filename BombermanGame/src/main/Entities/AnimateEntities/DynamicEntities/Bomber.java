@@ -1,7 +1,7 @@
 package main.Entities.AnimateEntities.DynamicEntities;
 
 import javafx.scene.image.Image;
-import main.Control.StartMenu;
+import main.Control.EndMenu;
 import main.Graphics.Sprite;
 
 import static main.BombermanGame.*;
@@ -38,7 +38,7 @@ public class Bomber extends DynamicEntity {
                 running = false;
                 Image gameOver = new Image("images/gameOver.png");
                 authorView.setImage(gameOver);
-                StartMenu.createStartMenu(rootmain);
+                EndMenu.createEndMenu(rootmain);
             }
         }
     }

@@ -25,7 +25,6 @@ import main.Graphics.Sprite;
 
 import static main.Levels.NextLevel.*;
 import static main.Control.Menu.*;
-import static main.Control.StartMenu.*;
 import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
 import static main.Utility.SoundManager.updateSound;
 
