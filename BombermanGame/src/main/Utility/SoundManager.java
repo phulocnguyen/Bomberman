@@ -9,9 +9,11 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
-import  static main.BombermanGame.*;
+import static main.BombermanGame.*;
 import static main.Levels.NextLevel.*;
+
 public class SoundManager extends JFrame {
+    public static boolean isSound = true;
     public static Clip titleScreen;
     public static Clip bombExplosion;
     public static Clip justDied;
@@ -27,51 +29,67 @@ public class SoundManager extends JFrame {
 
             assert url != null;
             AudioInputStream audio_in = AudioSystem.getAudioInputStream(url);
-            if(_sound.equals("title")) {
-                titleScreen  =AudioSystem.getClip();
+            if (_sound.equals("title")) {
+                titleScreen = AudioSystem.getClip();
                 titleScreen.open(audio_in);
                 titleScreen.start();
                 titleScreen.loop(10);
             }
-            if(_sound.equals("explosion")) {
+            if (_sound.equals("explosion")) {
                 bombExplosion = AudioSystem.getClip();
                 bombExplosion.open(audio_in);
                 bombExplosion.start();
             }
-            if(_sound.equals("just_died")) {
+            if (_sound.equals("just_died")) {
                 justDied = AudioSystem.getClip();
                 justDied.open(audio_in);
                 justDied.start();
             }
-            if(_sound.equals("default")) {
+            if (_sound.equals("default")) {
                 Clip clipp = AudioSystem.getClip();
                 clipp.open(audio_in);
                 clipp.start();
             }
-        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e ) {
+        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
             e.printStackTrace();
         }
     }
 
     public static void updateSound() {
-        if(!isSoundTitle) {
-            new SoundManager("sound/title_screen.wav", "title");
-            isSoundTitle = true;
-        }
-        if (!player.isAlive()) {
-            titleScreen.close();
-            bombExplosion.close();
-            if(!isSoundDied) {
-                new SoundManager("sound/just_died.wav", "just_died");
-                isSoundDied = true;
+        if (isSound) {
+            if (!isSoundTitle) {
+                new SoundManager("sound/title_screen.wav", "title");
+                isSoundTitle = true;
             }
+            if (!player.isAlive()) {
+                titleScreen.close();
+                bombExplosion.close();
+                if (!isSoundDied) {
+                    new SoundManager("sound/just_died.wav", "just_died");
+                    isSoundDied = true;
+                }
+            }
+            if (wait) {
+                titleScreen.close();
+                bombExplosion.close();
+                if (!isSoundComplete) {
+                    new SoundManager("sound/level_complete.wav", "default");
+                    isSoundComplete = true;
+                }
+            }
+        } else {
+            titleScreen.stop();
+            isSoundTitle = false;
         }
-        if(wait) {
-            titleScreen.close();
-            bombExplosion.close();
-            if(!isSoundComplete) {
-                new SoundManager("sound/level_complete.wav", "default");
-                isSoundComplete = true;
+    }
+
+    public static void updateSound(String s) {
+        if(isSound == true) {
+            if (s == "explosion") {
+                new SoundManager("sound/bomb_explosion.wav", "explosion");
+            }
+            if (s == "StartMenu") {
+                new SoundManager("sound/just_died.wav", "title");
             }
         }
     }

@@ -15,6 +15,7 @@ import javafx.stage.Stage;
 
 import main.Control.Menu;
 import main.Control.Move;
+import main.Control.StartMenu;
 import main.Entities.Entity;
 import main.Entities.AnimateEntities.DynamicEntities.*;
 import main.Entities.AnimateEntities.DynamicEntities.Bomber;
@@ -24,6 +25,7 @@ import main.Graphics.Sprite;
 
 import static main.Levels.NextLevel.*;
 import static main.Control.Menu.*;
+import static main.Control.StartMenu.*;
 import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
 import static main.Utility.SoundManager.updateSound;
 
@@ -77,6 +79,7 @@ public class BombermanGame extends Application {
         Menu.createMenu(root);
         root.getChildren().add(canvas);
         //root.getChildren().add(authorView);
+        StartMenu.createStartMenu(root);
 
         Scene scene = new Scene(root);
 

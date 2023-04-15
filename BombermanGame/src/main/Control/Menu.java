@@ -9,26 +9,28 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+import static main.Utility.SoundManager.*;
 import static main.BombermanGame.*;
 import main.Levels.*;
 
 public class Menu {
     private static ImageView statusGame;
+    private static ImageView statusSound;
     public static Text level, bomb, time;
     public static int bombNumber = 20, timeNumber = 120;
 
     public static void createMenu(Group root) {
-        level = new Text("Level: 1");
+        level = new Text("");
         level.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         level.setFill(Color.WHITE);
         level.setX(416);
         level.setY(20);
-        bomb = new Text("Bombs: 20");
+        bomb = new Text("");
         bomb.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         bomb.setFill(Color.WHITE);
         bomb.setX(512);
         bomb.setY(20);
-        time = new Text("Times: 120");
+        time = new Text("");
         time.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         time.setFill(Color.WHITE);
         time.setX(608);
@@ -41,13 +43,24 @@ public class Menu {
         statusGame.setScaleX(0.5);
         statusGame.setScaleY(0.5);
 
+        Image muteSound = new Image("images/mute.png");
+        statusSound = new ImageView(muteSound);
+        statusSound.setX(515);
+        statusSound.setY(-240);
+        statusSound.setScaleX(0.05);
+        statusSound.setScaleY(0.05);
+
         Pane pane = new Pane();
-        pane.getChildren().addAll(level, bomb, time, statusGame);
+        pane.getChildren().addAll(level, bomb, time, statusGame, statusSound);
         pane.setMinSize(800, 32);
-        pane.setMaxSize(800, 480);
+        pane.setMaxSize(800, 32);
         pane.setStyle("-fx-background-color: #353535");
 
         root.getChildren().add(pane);
+
+        statusSound.setOnMouseClicked(event -> {
+            updatestatusSound();
+        });
 
         statusGame.setOnMouseClicked(event -> {
             if (player.isAlive()) {
@@ -58,6 +71,21 @@ public class Menu {
             }
             updateMenu();
         });
+    }
+
+    public static void updatestatusSound() {
+        if(isSound == true) {
+            Image unmuteSound = new Image("images/unmute.png");
+            isSound = false;
+            statusSound.setImage(unmuteSound);
+            updateSound();
+
+        } else {
+            Image muteSound = new Image("images/mute.png");
+            isSound = true;
+            statusSound.setImage(muteSound);
+            updateSound();    
+        }
     }
 
     public static void updateMenu() {

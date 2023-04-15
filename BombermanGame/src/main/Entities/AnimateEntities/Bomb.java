@@ -9,6 +9,7 @@ import main.Entities.Entity;
 import main.Graphics.Sprite;
 import static main.BombermanGame.*;
 import static main.Control.Menu.*;
+import static main.Utility.SoundManager.*;
 
 public class Bomb extends Entity {
     private static double bombTime;
@@ -250,7 +251,7 @@ public class Bomb extends Entity {
                             isMiddle = true;
                         }
                     }
-                    //new SoundManager("sound/bomb_explosion.wav", "explosion");
+                    updateSound("explosion");
                     explodeCenter();
                     tmpTime += 100;
                 }
