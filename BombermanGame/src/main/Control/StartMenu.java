@@ -33,7 +33,6 @@ public class StartMenu {
         MenuNewGame.setY(50);
         MenuNewGame.setScaleX(1);
         MenuNewGame.setScaleY(1);
-        updateSound("StartMenu");
         Pane pane = new Pane();
         pane.getChildren().addAll(MenuNewGame);
         pane.setMinSize(400, 300);
