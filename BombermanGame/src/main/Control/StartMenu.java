@@ -30,7 +30,7 @@ public class StartMenu {
         Image newGame1 = new Image("images/newGame.png");
         MenuNewGame = new ImageView(newGame1);
         MenuNewGame.setX(39);
-        MenuNewGame.setY(50);
+        MenuNewGame.setY(160);
         MenuNewGame.setScaleX(1);
         MenuNewGame.setScaleY(1);
         Pane pane = new Pane();
@@ -39,14 +39,14 @@ public class StartMenu {
         pane.setMaxSize(400, 300);
         pane.setLayoutX(200);
         pane.setLayoutY(80);
-        pane.setStyle("-fx-background-color: #353535");
+        //pane.setStyle("-fx-background-color: #353535");
 
         root.getChildren().add(pane);
 
-        status = new Text("WELCOME BOMBERMAN");
+        status = new Text("BOMBERMAN");
         status.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        status.setFill(Color.RED);
-        status.setX(320);
+        status.setFill(Color.WHITE);
+        status.setX(350);
         status.setY(20);
         
         Pane pane1 = new Pane();

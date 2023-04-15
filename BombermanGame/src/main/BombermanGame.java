@@ -50,6 +50,7 @@ public class BombermanGame extends Application {
     public static DynamicEntity player;
     public static boolean running;
     public static ImageView authorView;
+    public static Group rootmain;
 
     private GraphicsContext gc;
     private Canvas canvas;
@@ -75,13 +76,13 @@ public class BombermanGame extends Application {
         authorView.setY(-208);
         authorView.setScaleX(0.5);
         authorView.setScaleY(0.5);
-        Group root = new Group();
-        Menu.createMenu(root);
-        root.getChildren().add(canvas);
-        //root.getChildren().add(authorView);
-        StartMenu.createStartMenu(root);
+        rootmain = new Group();
+        Menu.createMenu(rootmain);
+        rootmain.getChildren().add(canvas);
+        //rootmain.getChildren().add(authorView);
+        StartMenu.createStartMenu(rootmain);
 
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(rootmain);
 
         scene.setOnKeyPressed(event -> {
             if (player.isAlive())
