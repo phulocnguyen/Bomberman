@@ -44,7 +44,7 @@ public class Bomb extends Entity {
 
     public static void putBomb() {
         if (isBomb == 0) {
-            my_score -= 2;
+            my_score -= 50;
             isBomb = 1;
             bombTime = System.currentTimeMillis();
             tmpTime = bombTime;

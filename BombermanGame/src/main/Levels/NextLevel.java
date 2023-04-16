@@ -19,7 +19,7 @@ public class NextLevel {
             long now = System.currentTimeMillis();
             if (now - waitingTime > 4000) {
                 if (_level > 0)
-                    my_score += 100;
+                    my_score += 10000;
                 new nowLevel(_level + 1);
                 wait = false;
             }
