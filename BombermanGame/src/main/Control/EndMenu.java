@@ -18,6 +18,7 @@ public class EndMenu {
     private static ImageView MenuNewGame;
     private static ImageView MenuExit;
     private static ImageView GameOver;
+    private static Text EndScore;
     public static Text status;
     
     public static void createEndMenu(Group root) {
@@ -30,7 +31,7 @@ public class EndMenu {
         Image gameOver1 = new Image("images/GameOver.png");
         GameOver = new ImageView(gameOver1);
         GameOver.setX(120);
-        GameOver.setY(30);
+        GameOver.setY(0);
         GameOver.setScaleX(1.2);
         GameOver.setScaleY(1.2);
         Image exitGame1 = new Image("images/endMenuExit.png");
@@ -39,14 +40,20 @@ public class EndMenu {
         MenuExit.setY(170);
         MenuExit.setScaleX(0.28);
         MenuExit.setScaleY(0.28);
+        
+        EndScore = new Text("SCORE: " + my_score);
+        EndScore.setFont(Font.font("Arial", FontWeight.BOLD, 25));
+        EndScore.setFill(Color.BLACK);
+        EndScore.setX(142);
+        EndScore.setY(135);
+        
         Pane pane = new Pane();
-        pane.getChildren().addAll(MenuNewGame,MenuExit,GameOver);
+        pane.getChildren().addAll(MenuNewGame,MenuExit,GameOver,EndScore);
         pane.setMinSize(400, 300);
         pane.setMaxSize(400, 300);
         pane.setLayoutX(200);
         pane.setLayoutY(80);
         //pane.setStyle("-fx-background-color: #353535");
-
         root.getChildren().add(pane);
 
         status = new Text("BOMBERMAN");
@@ -54,7 +61,6 @@ public class EndMenu {
         status.setFill(Color.WHITE);
         status.setX(350);
         status.setY(20);
-        
         Pane pane1 = new Pane();
         pane1.getChildren().addAll(status);
         pane1.setMinSize(800, 32);
