@@ -29,7 +29,6 @@ public class nowLevel {
         isSoundDied = false; 
         isSoundTitle = false; 
         timeNumber = 120;
-        bombNumber = 20;
         isBomb = 0;
         speed = 1;
 

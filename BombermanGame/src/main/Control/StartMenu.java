@@ -1,5 +1,6 @@
 package main.Control;
 
+import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -15,21 +16,28 @@ import static main.BombermanGame.*;
 import main.Levels.*;
 public class StartMenu {
     private static ImageView MenuNewGame;
+    private static ImageView MenuExit;
     public static Text status;
     
     public static void createStartMenu(Group root) {
-        Image newGame1 = new Image("images/newGame.png");
+        Image newGame1 = new Image("images/endNewGame.png");
         MenuNewGame = new ImageView(newGame1);
-        MenuNewGame.setX(39);
-        MenuNewGame.setY(160);
-        MenuNewGame.setScaleX(1);
-        MenuNewGame.setScaleY(1);
+        MenuNewGame.setX(-185);
+        MenuNewGame.setY(105);
+        MenuNewGame.setScaleX(0.4);
+        MenuNewGame.setScaleY(0.4);
+        Image exitGame = new Image("images/endMenuExit.png");
+        MenuExit = new ImageView(exitGame);
+        MenuExit.setX(-185);
+        MenuExit.setY(170);
+        MenuExit.setScaleX(0.3);
+        MenuExit.setScaleY(0.3);
         Pane pane = new Pane();
-        pane.getChildren().addAll(MenuNewGame);
+        pane.getChildren().addAll(MenuNewGame, MenuExit);
         pane.setMinSize(400, 300);
         pane.setMaxSize(400, 300);
-        pane.setLayoutX(200);
-        pane.setLayoutY(80);
+        pane.setLayoutX(10);
+        pane.setLayoutY(180);
         //pane.setStyle("-fx-background-color: #353535");
 
         root.getChildren().add(pane);
@@ -54,10 +62,14 @@ public class StartMenu {
             if (player.isAlive()) {
                 running = !running;
             } else {
-                new nowLevel(0);
+                new nowLevel(1);
                 running = true;
             }
             updateMenu();
+        });
+
+        MenuExit.setOnMouseClicked(event -> {
+            Platform.exit();
         });
     }
 }

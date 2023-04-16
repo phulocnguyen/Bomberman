@@ -1,179 +1,172 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies.AI;
 
 import java.util.*;
-
 public class AStar {
-    private Node[][] searchArea;
-    private PriorityQueue<Node> openList;
-    private Set<Node> closedSet;
-    private Node initialNode;
-    private Node finalNode;
+    private Node[][] _searchArea;
+    private PriorityQueue<Node> _openList;
+    private Set<Node> _closedSet;
+    private Node _initialNode;
+    private Node _finalNode;
 
-    public AStar(int rows, int cols, Node initialNode, Node finalNode) {
-        setInitialNode(initialNode);
-        setFinalNode(finalNode);
-        this.searchArea = new Node[rows][cols];
-        this.openList = new PriorityQueue<>(Comparator.comparingInt(Node::getF));
-        setNodes();
-        this.closedSet = new HashSet<>();
+    private boolean is_finalNode(Node current_Node) {
+        return current_Node.equals(_finalNode);
+    }
+    private boolean is_Empty(PriorityQueue<Node> _openList) {
+        return _openList.size() == 0;
+    }
+    private void set_Block(int _row, int _col) {
+        this._searchArea[_row][_col].setIs_Block(true);
+    }
+    public Node get_initialNode() {
+        return _initialNode;
     }
 
-    private void setNodes() {
-        for (int i = 0; i < searchArea.length; i++) {
-            for (int j = 0; j < searchArea[0].length; j++) {
-                Node node = new Node(i, j);
-                node.calculateHeuristic(getFinalNode());
-                this.searchArea[i][j] = node;
+    public void set_initialNode(Node _initialNode) {
+        this._initialNode = _initialNode;
+    }
+
+    public Node get_finalNode() {
+        return _finalNode;
+    }
+
+    public void set_finalNode(Node _finalNode) {
+        this._finalNode = _finalNode;
+    }
+
+    public Node[][] get_searchArea() {
+        return _searchArea;
+    }
+
+    public void set_searchArea(Node[][] _searchArea) {
+        this._searchArea = _searchArea;
+    }
+
+    public PriorityQueue<Node> get_openList() {
+        return _openList;
+    }
+
+    public void set_openList(PriorityQueue<Node> _openList) {
+        this._openList = _openList;
+    }
+
+    public Set<Node> get_closedSet() {
+        return _closedSet;
+    }
+
+    public void set_closedSet(Set<Node> _closedSet) {
+        this._closedSet = _closedSet;
+    }
+
+    public AStar(int _rows, int _cols, Node _initialNode, Node _finalNode) {
+        set_initialNode(_initialNode);
+        set_finalNode(_finalNode);
+        this._searchArea = new Node[_rows][_cols];
+        this._openList = new PriorityQueue<>(Comparator.comparingInt(Node::getfF));
+        set_Node();
+        this._closedSet = new HashSet<>();
+    }
+     private void set_Node() {
+        for(int i = 0; i < _searchArea.length; i++) {
+            for (int j = 0; j < _searchArea[0].length; j++) {
+                Node _node = new Node(i, j);
+                _node.calculateHeuristic(get_finalNode());
+                this._searchArea[i][j] = _node;
             }
         }
-    }
-
-    public void setBlocks(int[][] blocksArray, int count) {
-        for (int i = 0; i < count; i++) {
-            int row = blocksArray[i][0];
-            int col = blocksArray[i][1];
-            setBlock(row, col);
+     }
+    public  void set_Block(int[][] blocks_Arr, int _count) {
+        for(int i = 0; i < _count; i++) {
+            int _row = blocks_Arr[i][0];
+            int _col = blocks_Arr[i][1];
+            set_Block(_row, _col);
         }
-    }
+     }
 
-    public List<Node> findPath() {
-        openList.add(initialNode);
-        while (!isEmpty(openList)) {
-            Node currentNode = openList.poll();
-            closedSet.add(currentNode);
-            assert currentNode != null;
-            if (isFinalNode(currentNode)) {
-                return getPath(currentNode);
+    public List<Node> find_Path() {
+        _openList.add(_initialNode);
+        while (!is_Empty(_openList)) {
+            Node current_Node = _openList.poll();
+            _closedSet.add(current_Node);
+            assert current_Node != null;
+            if (is_finalNode(current_Node)) {
+                return get_Path(current_Node);
             } else {
-                addAdjacentNodes(currentNode);
+                add_AdjacnetNodes(current_Node);
             }
         }
         return new ArrayList<Node>();
     }
 
-    private List<Node> getPath(Node currentNode) {
-        List<Node> path = new ArrayList<Node>();
-        path.add(currentNode);
-        Node parent;
-        while ((parent = currentNode.getParent()) != null) {
-            path.add(0, parent);
-            currentNode = parent;
+    private List<Node> get_Path(Node current_Node) {
+        List<Node> _path = new ArrayList<Node>();
+        _path.add(current_Node);
+        Node _parent;
+        while ((_parent = current_Node.getParent()) != null) {
+            _path.add(0, _parent);
+            current_Node = _parent;
         }
-        return path;
+        return _path;
+    }
+    private void add_AdjacnetNodes(Node current_node) {
+        add_AdjacnetUpperRow(current_node);
+        add_AdjacnetMiddleRow(current_node);
+        add_AdjacnetLowerRow(current_node);
     }
 
-    private void addAdjacentNodes(Node currentNode) {
-        addAdjacentUpperRow(currentNode);
-        addAdjacentMiddleRow(currentNode);
-        addAdjacentLowerRow(currentNode);
-    }
-
-    private void addAdjacentLowerRow(Node currentNode) {
-        int row = currentNode.getRow();
-        int col = currentNode.getCol();
-        int lowerRow = row + 1;
-        if (lowerRow < getSearchArea().length) {
-            if (col - 1 >= 0) {
-                checkNode(currentNode, col - 1, lowerRow);
+    private void add_AdjacnetLowerRow(Node current_Node) {
+        int _row = current_Node.get_row();
+        int _col = current_Node.get_col();
+        int lower_Row = _row + 1;
+        if(lower_Row < get_searchArea().length) {
+            if(_col - 1 <= 0) {
+                check_Node(current_Node, _col - 1, lower_Row);
             }
-            if (col + 1 < getSearchArea()[0].length) {
-                checkNode(currentNode, col + 1, lowerRow);
+            if(_col + 1 < get_searchArea()[0].length) {
+                check_Node(current_Node, _col + 1, lower_Row);
             }
-            checkNode(currentNode, col, lowerRow);
+            check_Node(current_Node, _col, lower_Row);
         }
     }
 
-    private void addAdjacentMiddleRow(Node currentNode) {
-        int row = currentNode.getRow();
-        int col = currentNode.getCol();
-        if (col - 1 >= 0) {
-            checkNode(currentNode, col - 1, row);
+    private void add_AdjacnetMiddleRow(Node current_Node) {
+        int _row = current_Node.get_row();
+        int _col = current_Node.get_col();
+        if(_col - 1 >= 0) {
+            check_Node(current_Node, _col - 1, _row);
         }
-        if (col + 1 < getSearchArea()[0].length) {
-            checkNode(currentNode, col + 1, row);
+        if(_col + 1 < get_searchArea()[0].length) {
+            check_Node(current_Node, _col + 1, _row);
+        }
+    }
+    private void add_AdjacnetUpperRow(Node current_Node) {
+        int _row = current_Node.get_row();
+        int _col = current_Node.get_col();
+        int upper_Row = _row - 1;
+        if(upper_Row >= 0) {
+            if(_col - 1 >= 0) {
+                check_Node(current_Node, _col - 1, upper_Row);
+            }
+
+            if(_col + 1 < get_searchArea()[0].length) {
+                check_Node(current_Node, _col + 1, upper_Row);
+            }
+            check_Node(current_Node, _col, upper_Row);
         }
     }
 
-    private void addAdjacentUpperRow(Node currentNode) {
-        int row = currentNode.getRow();
-        int col = currentNode.getCol();
-        int upperRow = row - 1;
-        if (upperRow >= 0) {
-            if (col - 1 >= 0) {
-                checkNode(currentNode, col - 1, upperRow);
-            }
-            if (col + 1 < getSearchArea()[0].length) {
-                checkNode(currentNode, col + 1, upperRow);
-            }
-            checkNode(currentNode, col, upperRow);
-        }
-    }
-
-    private void checkNode(Node currentNode, int col, int row) {
-        Node adjacentNode = getSearchArea()[row][col];
-        if (!adjacentNode.isBlock() && !getClosedSet().contains(adjacentNode)) {
-            if (!getOpenList().contains(adjacentNode)) {
-                adjacentNode.setNodeData(currentNode);
-                getOpenList().add(adjacentNode);
+    private void check_Node(Node current_Node, int _col, int _row) {
+        Node adjacent_Node = get_searchArea()[_row][_col];
+        if(!adjacent_Node.isIs_Block() && !get_closedSet().contains(adjacent_Node)) {
+            if(!get_openList().contains(adjacent_Node)) {
+                adjacent_Node.set_NodeData(current_Node);
+                get_openList().add(adjacent_Node);
             } else {
-                boolean changed = adjacentNode.checkBetterPath(currentNode);
-                if (changed) {
-                    getOpenList().remove(adjacentNode);
-                    getOpenList().add(adjacentNode);
+                boolean changed = adjacent_Node.check_BetterPath(current_Node);
+                if(changed) {
+                    get_openList().remove(adjacent_Node);
+                    get_openList().add(adjacent_Node);
                 }
             }
         }
-    }
-
-    private boolean isFinalNode(Node currentNode) {
-        return currentNode.equals(finalNode);
-    }
-
-    private boolean isEmpty(PriorityQueue<Node> openList) {
-        return openList.size() == 0;
-    }
-
-    private void setBlock(int row, int col) {
-        this.searchArea[row][col].setBlock(true);
-    }
-
-    public Node getInitialNode() {
-        return initialNode;
-    }
-
-    public void setInitialNode(Node initialNode) {
-        this.initialNode = initialNode;
-    }
-
-    public Node getFinalNode() {
-        return finalNode;
-    }
-
-    public void setFinalNode(Node finalNode) {
-        this.finalNode = finalNode;
-    }
-
-    public Node[][] getSearchArea() {
-        return searchArea;
-    }
-
-    public void setSearchArea(Node[][] searchArea) {
-        this.searchArea = searchArea;
-    }
-
-    public PriorityQueue<Node> getOpenList() {
-        return openList;
-    }
-
-    public void setOpenList(PriorityQueue<Node> openList) {
-        this.openList = openList;
-    }
-
-    public Set<Node> getClosedSet() {
-        return closedSet;
-    }
-
-    public void setClosedSet(Set<Node> closedSet) {
-        this.closedSet = closedSet;
     }
 }

@@ -23,6 +23,7 @@ import main.Entities.AnimateEntities.StaticEntities.Portal;
 import main.Entities.AnimateEntities.Bomb;
 import main.Graphics.Sprite;
 
+import main.Control.EndMenu;
 import static main.Levels.NextLevel.*;
 import static main.Control.Menu.*;
 import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
@@ -41,6 +42,7 @@ public class BombermanGame extends Application {
     public static int _width = 0;
     public static int _height = 0;
     public static int _level = 1;
+    public static int my_score = 0;
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
     public static List<DynamicEntity> enemy = new ArrayList<>();       //Contains enemy entities
@@ -59,7 +61,6 @@ public class BombermanGame extends Application {
 
     public static Stage mainStage = null;
 
-
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
     }
@@ -71,20 +72,21 @@ public class BombermanGame extends Application {
         gc = canvas.getGraphicsContext2D();
         Image author = new Image("images/author.png");
         authorView = new ImageView(author);
-        authorView.setX(-400);
-        authorView.setY(-208);
-        authorView.setScaleX(0.5);
-        authorView.setScaleY(0.5);
+        authorView.setX(-240);
+        authorView.setY(-113);
+        authorView.setScaleX(0.625);
+        authorView.setScaleY(0.625);
         rootmain = new Group();
         Menu.createMenu(rootmain);
         rootmain.getChildren().add(canvas);
-        //rootmain.getChildren().add(authorView);
+        rootmain.getChildren().add(authorView);
         StartMenu.createStartMenu(rootmain);
-
+        //EndMenu.createEndMenu(rootmain);
+        
         Scene scene = new Scene(rootmain);
 
         scene.setOnKeyPressed(event -> {
-            if (player.isAlive())
+            if (player.isAlive() && running)
                 switch (event.getCode()) {
                     case UP:
                         Move.up(player);
@@ -106,8 +108,8 @@ public class BombermanGame extends Application {
 
         stage.setScene(scene);
         stage.setTitle("Bomberman");
-        Image icon = new Image("images/ttsalpha4.0@0.5x.png");
-        //stage.getIcons().add(icon);
+        Image icon = new Image("images/app_icon.png");
+        stage.getIcons().add(icon);
         mainStage = stage;
         mainStage.show();
 
@@ -176,7 +178,9 @@ public class BombermanGame extends Application {
             lastTime = System.currentTimeMillis();
             mainStage.setTitle("Bomberman | " + frame + " frame");
             frame = 0;
-
+            if(my_score < 0)
+                my_score = 0;
+            score.setText("Score: " + my_score);
             time.setText("Time: " + timeNumber);
             timeNumber--;
             if (timeNumber < 0)

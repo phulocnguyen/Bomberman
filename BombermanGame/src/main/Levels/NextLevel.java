@@ -12,8 +12,14 @@ public class NextLevel {
         if (wait) {
             Image waitToNext = new Image("images/levelUp.png");
             authorView.setImage(waitToNext);
+            authorView.setX(-658);
+            authorView.setY(-358);
+            authorView.setScaleX(0.3849);
+            authorView.setScaleY(0.3849);
             long now = System.currentTimeMillis();
             if (now - waitingTime > 4000) {
+                if (_level > 0)
+                    my_score += 100;
                 new nowLevel(_level + 1);
                 wait = false;
             }

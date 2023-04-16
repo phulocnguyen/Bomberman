@@ -36,7 +36,7 @@ public class Bomber extends DynamicEntity {
             } else {
                 de.setImg(Sprite.transparent.getFxImage());
                 running = false;
-                Image gameOver = new Image("images/gameOver.png");
+                Image gameOver = new Image("images/transparent.png");
                 authorView.setImage(gameOver);
                 EndMenu.createEndMenu(rootmain);
             }

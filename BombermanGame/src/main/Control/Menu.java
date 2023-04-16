@@ -16,8 +16,8 @@ import main.Levels.*;
 public class Menu {
     private static ImageView statusGame;
     private static ImageView statusSound;
-    public static Text level, bomb, time;
-    public static int bombNumber = 20, timeNumber = 120;
+    public static Text level, score, time;
+    public static int timeNumber = 120;
 
     public static void createMenu(Group root) {
         level = new Text("");
@@ -25,11 +25,11 @@ public class Menu {
         level.setFill(Color.WHITE);
         level.setX(416);
         level.setY(20);
-        bomb = new Text("");
-        bomb.setFont(Font.font("Arial", FontWeight.BOLD, 14));
-        bomb.setFill(Color.WHITE);
-        bomb.setX(512);
-        bomb.setY(20);
+        score = new Text("");
+        score.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+        score.setFill(Color.WHITE);
+        score.setX(512);
+        score.setY(20);
         time = new Text("");
         time.setFont(Font.font("Arial", FontWeight.BOLD, 14));
         time.setFill(Color.WHITE);
@@ -45,13 +45,13 @@ public class Menu {
 
         Image muteSound = new Image("images/mute.png");
         statusSound = new ImageView(muteSound);
-        statusSound.setX(515);
+        statusSound.setX(497);
         statusSound.setY(-240);
         statusSound.setScaleX(0.05);
         statusSound.setScaleY(0.05);
 
         Pane pane = new Pane();
-        pane.getChildren().addAll(level, bomb, time, statusGame, statusSound);
+        pane.getChildren().addAll(level, score, time, statusGame, statusSound);
         pane.setMinSize(800, 32);
         pane.setMaxSize(800, 32);
         pane.setStyle("-fx-background-color: #353535");
@@ -66,7 +66,7 @@ public class Menu {
             if (player.isAlive()) {
                 running = !running;
             } else {
-                new nowLevel(0);
+                new nowLevel(1);
                 running = true;
             }
             updateMenu();
@@ -90,8 +90,6 @@ public class Menu {
 
     public static void updateMenu() {
         level.setText("Level: " + _level);
-        bomb.setText("Bombs: " + bombNumber);
-
         if (player.isAlive())
             if (running) {
                 Image pauseGame = new Image("images/pauseGame.png");

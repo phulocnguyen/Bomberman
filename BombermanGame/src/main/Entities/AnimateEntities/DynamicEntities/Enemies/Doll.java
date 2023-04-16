@@ -7,6 +7,7 @@ import java.util.List;
 
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
 import javafx.scene.image.Image;
+import main.BombermanGame;
 import main.Control.Move;
 import main.Entities.AnimateEntities.DynamicEntities.Enemies.AI.*;
 
@@ -32,6 +33,7 @@ public class Doll extends DynamicEntity {
     private void killDoll(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
+                my_score += 25;
                 animal.setImg(Sprite.dollDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
@@ -66,11 +68,11 @@ public class Doll extends DynamicEntity {
                         countBlock++;
                     }
 
-            aStar.setBlocks(blocksArray, countBlock);
-            List<Node> path = aStar.findPath();
+            aStar.set_Block(blocksArray, countBlock);
+            List<Node> path = aStar.find_Path();
             if (path.size() != 0) {
-                int nextY = path.get(1).getRow();
-                int nextX = path.get(1).getCol();
+                int nextY = path.get(1).get_row();
+                int nextX = path.get(1).get_col();
 
                 if (this.y / 32 > nextY)
                     Move.up(this);
@@ -89,9 +91,11 @@ public class Doll extends DynamicEntity {
         kill();
         countKill++;
         for (DynamicEntity animal : enemy) {
-            if (animal instanceof Doll && !animal.isAlive())
+            if (animal instanceof Doll && !animal.isAlive()) {
                 killDoll(animal);
+            }
         }
-        moveDoll();
+        if(player.isAlive())
+            moveDoll();
     }
 }

@@ -8,7 +8,6 @@ import main.Control.*;
 import main.Entities.Entity;
 import main.Graphics.Sprite;
 import static main.BombermanGame.*;
-import static main.Control.Menu.*;
 import static main.Utility.SoundManager.*;
 
 public class Bomb extends Entity {
@@ -44,8 +43,8 @@ public class Bomb extends Entity {
     }
 
     public static void putBomb() {
-        if (isBomb == 0 && bombNumber > 0) {
-            bombNumber--;
+        if (isBomb == 0) {
+            my_score -= 2;
             isBomb = 1;
             bombTime = System.currentTimeMillis();
             tmpTime = bombTime;

@@ -1,77 +1,42 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies.AI;
+
 public class Node {
-    private int g;
-    private int f;
-    private int h;
-    private int row;
-    private int col;
-    private boolean isBlock;
+    private int gG;
+    private int fF;
+    private int hH;
+    private int _row;
+    private int _col;
+    private boolean is_Block;
     private Node parent;
 
-    public Node(int row, int col) {
+    public Node(int _row, int _col) {
         super();
-        this.row = row;
-        this.col = col;
+        this._col = _col;
+        this._row = _row;
     }
 
-    public void calculateHeuristic(Node finalNode) {
-        this.h = Math.abs(finalNode.getRow() - getRow()) + Math.abs(finalNode.getCol() - getCol());
+    public int gethH() {
+        return hH;
     }
 
-    public void setNodeData(Node currentNode) {
-        int gCost = currentNode.getG();
-        setParent(currentNode);
-        setG(gCost);
-        calculateFinalCost();
+    public void sethH(int hH) {
+        this.hH = hH;
     }
 
-    public boolean checkBetterPath(Node currentNode) {
-        int gCost = currentNode.getG();
-        if (gCost < getG()) {
-            setNodeData(currentNode);
-            return true;
-        }
-        return false;
+    public int getgG() {
+        return gG;
     }
 
-    private void calculateFinalCost() {
-        int finalCost = getG() + getH();
-        setF(finalCost);
+    public void setgG(int gG) {
+        this.gG = gG;
     }
 
-    @Override
-    public boolean equals(Object arg0) {
-        Node other = (Node) arg0;
-        return this.getRow() == other.getRow() && this.getCol() == other.getCol();
+    public int getfF() {
+        return fF;
     }
 
-    @Override
-    public String toString() {
-        return "Node [row=" + row + ", col=" + col + "]";
-    }
-
-    public int getH() {
-        return h;
-    }
-
-    public void setH(int h) {
-        this.h = h;
-    }
-
-    public int getG() {
-        return g;
-    }
-
-    public void setG(int g) {
-        this.g = g;
-    }
-
-    public int getF() {
-        return f;
-    }
-
-    public void setF(int f) {
-        this.f = f;
+    public void setfF(int fF) {
+        this.fF = fF;
     }
 
     public Node getParent() {
@@ -82,27 +47,58 @@ public class Node {
         this.parent = parent;
     }
 
-    public boolean isBlock() {
-        return isBlock;
+    public void setIs_Block(boolean is_Block) {
+        this.is_Block = is_Block;
     }
 
-    public void setBlock(boolean isBlock) {
-        this.isBlock = isBlock;
+    public boolean isIs_Block() {
+        return is_Block;
     }
 
-    public int getRow() {
-        return row;
+    public int get_col() {
+        return _col;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void set_col(int _col) {
+        this._col = _col;
     }
 
-    public int getCol() {
-        return col;
+    public int get_row() {
+        return _row;
     }
 
-    public void setCol(int col) {
-        this.col = col;
+    public void set_row(int _row) {
+        this._row = _row;
+    }
+
+    public void calculateHeuristic(Node final_Node) {
+        this.hH = Math.abs(final_Node.get_row() - get_row() + Math.abs(final_Node.get_col() - get_col()));
+    }
+    public void set_NodeData(Node current_Node) {
+        int g_Cost = current_Node.getgG();
+        setParent(current_Node);
+        setgG(g_Cost);
+        calculate_FinalCost();
+    }
+    private void calculate_FinalCost() {
+        int final_Cost = getgG() + gethH();
+        setfF(final_Cost);
+    }
+    public boolean check_BetterPath(Node current_Node) {
+        int g_Cost = current_Node. getgG();
+        if(g_Cost < getgG()) {
+            set_NodeData(current_Node);
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Node other = (Node) obj;
+        return this.get_row() == other.get_row() && this.get_col() == other.get_col();
+    }
+    public String toString() {
+        return "Node [row=" + _row + ", col=" + _col + "]";
     }
 }

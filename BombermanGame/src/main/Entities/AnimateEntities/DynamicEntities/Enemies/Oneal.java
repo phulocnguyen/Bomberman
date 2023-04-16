@@ -28,6 +28,7 @@ public class Oneal extends DynamicEntity {
     private void killOneal(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
+                my_score += 15;
                 animal.setImg(Sprite.onealDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
