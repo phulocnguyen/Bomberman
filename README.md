@@ -34,7 +34,7 @@ Có 8 loại Enemy trong Bomberman
 | Enemy                               | Name     | Points | Speed  | Smart   | 
 |-------------------------------------|----------|--------|--------|---------|
 | ![](BombermanGame/src/res/sprites/balloom_left1.png)  | Ballom   | 100    | 1      | level 1 |
-| ![](BombermanGame/src/res/sprites/oneal_left1.png)    | Oneal    | 200    | 1 or 2 | level 2 |
+| ![](BombermanGame/src/res/sprites/oneal_left1.png)    | Oneal    | 200    | 1      | level 2 |
 | ![](BombermanGame/src/res/sprites/doll_left1.png)     | Doll     | 400    | 2      | level 2 |
 | ![](BombermanGame/src/res/sprites/minvo_left1.png)    | Minvo    | 800    | 1      | level 2 | 
 | ![](BombermanGame/src/res/sprites/ovapi.png)          | Ovapi    | 1000   | 1      | level 3 | 
@@ -104,4 +104,5 @@ Có 8 loại Enemy trong Bomberman
 - Maven Framework
 
 ## 9. Demo
+![](BombermanGame/src/res/images/Demo.png)
 
