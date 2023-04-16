@@ -31,16 +31,16 @@ Các *Item* cũng được giấu phía sau Brick và chỉ hiện ra khi Brick 
 
 Có 8 loại Enemy trong Bomberman
 
-| Enemy                               | Name     | Points | Speed  | Smart   | Wallpass | Finding Scope |
-|-------------------------------------|----------|--------|--------|---------|----------|---------------|
-| ![](BombermanGame/src/res/sprites/balloom_left1.png)  | Balloom  | 100    | 1      | level 1 | No       | N/A           |
-| ![](BombermanGame/src/res/sprites/oneal_left1.png)    | Oneal    | 200    | 1 or 2 | level 2 | No       | N/A           |
-| ![](BombermanGame/src/res/sprites/doll_left1.png)     | Doll     | 400    | 2      | level 2 | No       | N/A           |
-| ![](BombermanGame/src/res/sprites/minvo_left1.png)    | Minvo    | 800    | 1      | level 3 | No       | 5             |
-| ![](BombermanGame/src/res/sprites/ovapi.png)          | Ovapi    | 1000   | 1      | level 3 | Yes      | 5             |
-| ![](BombermanGame/src/res/sprites/kondoria_left1.png) | Kondoria | 2000   | 1      | level 4 | Yes      | 7             |
-| ![](BombermanGame/src/res/sprites/pass.png)           | Pass     | 4000   | 2      | level 4 | No       | 5             |
-| ![](BombermanGame/src/res/sprites/pontan.png)         | Ghost    | 8000   | 2      | level 4 | Yes      | 7             |
+| Enemy                               | Name     | Points | Speed  | Smart   | 
+|-------------------------------------|----------|--------|--------|---------|
+| ![](BombermanGame/src/res/sprites/balloom_left1.png)  | Ballom   | 100    | 1      | level 1 |
+| ![](BombermanGame/src/res/sprites/oneal_left1.png)    | Oneal    | 200    | 1 or 2 | level 2 |
+| ![](BombermanGame/src/res/sprites/doll_left1.png)     | Doll     | 400    | 2      | level 2 |
+| ![](BombermanGame/src/res/sprites/minvo_left1.png)    | Minvo    | 800    | 1      | level 2 | 
+| ![](BombermanGame/src/res/sprites/ovapi.png)          | Ovapi    | 1000   | 1      | level 3 | 
+| ![](BombermanGame/src/res/sprites/kondoria_left1.png) | Kondoria | 2000   | 1      | level 3 | 
+| ![](BombermanGame/src/res/sprites/pass.png)           | Pass     | 4000   | 2      | level 3 | 
+| ![](BombermanGame/src/res/sprites/pontan.png)         | Ghost    | 8000   | 2      | level 3 | 
 
 Độ thông minh của quái
 - Level 1: Enemy đi random 
@@ -80,6 +80,7 @@ Có 8 loại Enemy trong Bomberman
 - Có chế độ chọn màn chơi, cho phép người chơi trải nghiệm tất cả các map 
 <!-- - Hết 120s đếm ngược thì toàn bộ quái sẽ biến thành Pontan để đuổi theo người chơi -->
 <!-- - Điểm được lưu lại qua các màn chơi, leaderboard có thể lưu được top 3 điểm cao nhất -->
+- 
 - Có thể tuỳ chỉnh âm lượng tuỳ ý người chơi
 - Các level được sắp xếp theo độ khó tăng dần dựa vào độ thông minh của các enemy, từ random, thông minh đến rất thông minh
 <!-- - Khi quái chết có hiện điểm của quái trên màn hình -->

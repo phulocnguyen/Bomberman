@@ -45,6 +45,15 @@ public class CreateEnemy {
                                 case 12:
                                     enemy.add(new Oneal(j, i, Sprite.onealLeft_1.getFxImage()));
                                     break;
+                                case 13:
+                                    enemy.add(new Ghost(j, i, Sprite.ghostLeft_1.getFxImage()));
+                                    break;
+                                case 14:
+                                    enemy.add(new Ovapi(j, i, Sprite.ovapiLeft_1.getFxImage()));
+                                    break;
+                                case 15:
+                                    enemy.add(new Pass(j, i, Sprite.passLeft_1.getFxImage()));
+                                    break;
                             }
                         }
                     }

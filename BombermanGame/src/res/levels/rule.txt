@@ -1,8 +1,8 @@
 1:  Portal
 2:  Wall
 3:  Brick
-4:  ?
-5:  ?
+4:  BombItem
+5:  FlamePassItem
 6:  SpeedItem
 7:  FlameItem
 8:  Ballom
@@ -10,3 +10,6 @@
 10: Kondoria
 11: Minvo
 12: Oneal
+13: Ghost
+14: Ovapi
+15: Pass

@@ -66,7 +66,7 @@ public class Menu {
             if (player.isAlive()) {
                 running = !running;
             } else {
-                new nowLevel(1);
+                new nowLevel(0);
                 running = true;
             }
             updateMenu();
