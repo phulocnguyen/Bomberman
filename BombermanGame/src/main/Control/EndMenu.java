@@ -72,6 +72,7 @@ public class EndMenu {
         MenuNewGame.setOnMouseClicked(event -> {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
+            my_score = 0;
             if (player.isAlive()) {
                 running = !running;
             } else {
