@@ -40,7 +40,7 @@ Có 8 loại Enemy trong Bomberman
 | ![](BombermanGame/src/res/sprites/ovapi.png)          | Ovapi    | 1000   | 1      | level 3 | Yes      | 5             |
 | ![](BombermanGame/src/res/sprites/kondoria_left1.png) | Kondoria | 2000   | 1      | level 4 | Yes      | 7             |
 | ![](BombermanGame/src/res/sprites/pass.png)           | Pass     | 4000   | 2      | level 4 | No       | 5             |
-| ![](BombermanGame/src/res/sprites/ghost.png)         | Pontan   | 8000   | 2      | level 4 | Yes      | 7 |
+| ![](BombermanGame/src/res/sprites/pontan.png)         | Ghost    | 8000   | 2      | level 4 | Yes      | 7 |
 
 Độ thông minh của quái
 - Level 1: Enemy đi random 
@@ -53,7 +53,7 @@ Có 8 loại Enemy trong Bomberman
 - Enemy bị tiêu diệt khi thuộc phạm vi Bomb nổ
 - Một đối tượng thuộc phạm vi Bomb nổ có nghĩa là đối tượng đó va chạm với một trong các tia lửa được tạo ra tại thời điểm một đối tượng Bomb nổ.
 
-- Khi Bomb nổ, một Flame trung tâm ![](BombermanGame/src/res/sprites/bomb_exploded.png) tại vị trí Bomb nổ và bốn Flame tại bốn vị trí ô đơn vị xung quanh vị trí của Bomb xuất hiện theo bốn hướng trên ![](BombermanGame/src/res/sprites/explosion_vertical.png)/ dưới ![](BombermanGame/src/res/sprites/explosion_vertical.png)/ trái ![](BombermanGame/src/res/sprites/explosion_horizontal.png)/ phải! [](BombermanGame/src/res/sprites/explosion_horizontal.png). Độ dài bốn Flame xung quanh mặc định là 1 đơn vị, được tăng lên khi Bomber sử dụng các FlameItem.
+- Khi Bomb nổ, một Flame trung tâm ![](BombermanGame/src/res/sprites/bomb_exploded.png) tại vị trí Bomb nổ và bốn Flame tại bốn vị trí ô đơn vị xung quanh vị trí của Bomb xuất hiện theo bốn hướng trên ![](BombermanGame/src/res/sprites/explosion_vertical.png)/ dưới ![](BombermanGame/src/res/sprites/explosion_vertical.png)/ trái ![](BombermanGame/src/res/sprites/explosion_horizontal.png)/ phải ![](BombermanGame/src/res/sprites/explosion_horizontal.png). Độ dài bốn Flame xung quanh mặc định là 1 đơn vị, được tăng lên khi Bomber sử dụng các FlameItem.
 - Khi các Flame xuất hiện, nếu có một đối tượng thuộc loại Brick/Wall nằm trên vị trí một trong các Flame thì độ dài Flame đó sẽ được giảm đi để sao cho Flame chỉ xuất hiện đến vị trí đối tượng Brick/Wall theo hướng xuất hiện. Lúc đó chỉ có đối tượng Brick/Wall bị ảnh hưởng bởi Flame, các đối tượng tiếp theo không bị ảnh hưởng. 
 
 ## 5. Các phím điều khiển
