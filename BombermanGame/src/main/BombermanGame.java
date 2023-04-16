@@ -23,7 +23,6 @@ import main.Entities.AnimateEntities.StaticEntities.Portal;
 import main.Entities.AnimateEntities.Bomb;
 import main.Graphics.Sprite;
 
-import main.Control.EndMenu;
 import static main.Levels.NextLevel.*;
 import static main.Control.Menu.*;
 import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
@@ -102,6 +101,8 @@ public class BombermanGame extends Application {
                         break;
                     case SPACE:
                         Bomb.putBomb();
+                        break;
+                    default:
                         break;
                 }
         });
