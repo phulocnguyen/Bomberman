@@ -7,7 +7,6 @@ import java.util.List;
 
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
 import javafx.scene.image.Image;
-import main.BombermanGame;
 import main.Control.Move;
 import main.Entities.AnimateEntities.DynamicEntities.Enemies.AI.*;
 

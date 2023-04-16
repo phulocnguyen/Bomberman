@@ -1,6 +1,5 @@
 package main.Graphics;
 import javafx.scene.image.*;
-import main.Graphics.SpriteSheet;
 
 public class Sprite {
 

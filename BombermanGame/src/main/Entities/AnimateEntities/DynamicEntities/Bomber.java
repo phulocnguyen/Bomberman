@@ -48,6 +48,21 @@ public class Bomber extends DynamicEntity {
             player.setAlive(false);
     }
 
+    private void check(int x) {
+        switch(x) {
+            case 1:
+                checkEnemy();
+                break;
+            case 2:
+                checkEnemy2();
+                break;
+            case 3:
+                checkEnemy3();
+                break;
+            
+        }
+    }
+
     private void checkEnemy() {
         int ax = player.getX() / 32;
         int ay = player.getY() / 32;
@@ -94,7 +109,7 @@ public class Bomber extends DynamicEntity {
     @Override
     public void update() {
         checkBomb();
-        checkEnemy3();
+        check(3);
         countKill++;
         if (!player.isAlive())
             killBomber(player);
