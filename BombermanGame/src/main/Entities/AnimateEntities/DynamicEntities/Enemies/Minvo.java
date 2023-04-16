@@ -5,8 +5,7 @@ import javafx.scene.image.Image;
 import main.Graphics.Sprite;
 import main.Control.Move;
 
-import static main.BombermanGame.player;
-import static main.BombermanGame.enemy;
+import static main.BombermanGame.*;
 
 public class Minvo extends DynamicEntity {
     private static int swapKill = 1;
@@ -30,7 +29,8 @@ public class Minvo extends DynamicEntity {
     private void killMinvo(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
-                animal.setImg(Sprite.onealDead.getFxImage());
+                my_score += 800;
+                animal.setImg(Sprite.minvoDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
                 animal.setImg(Sprite.playerDead_3.getFxImage());
@@ -48,7 +48,7 @@ public class Minvo extends DynamicEntity {
         kill();
         countKill++;
         for (DynamicEntity animal : enemy) {
-            if (animal instanceof Oneal && !animal.isAlive())
+            if (animal instanceof Minvo && !animal.isAlive())
                 killMinvo(animal);
         }
 

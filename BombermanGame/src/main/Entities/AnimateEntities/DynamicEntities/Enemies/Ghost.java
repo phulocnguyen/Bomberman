@@ -28,6 +28,7 @@ public class Ghost extends DynamicEntity {
     private void killGhost(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
+                my_score += 8000;
                 animal.setImg(Sprite.ghostDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {

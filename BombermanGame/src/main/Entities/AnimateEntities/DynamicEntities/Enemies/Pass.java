@@ -28,7 +28,8 @@ public class Pass extends DynamicEntity {
     private void killPass(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
-                animal.setImg(Sprite.onealDead.getFxImage());
+                my_score += 4000;
+                animal.setImg(Sprite.passDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
                 animal.setImg(Sprite.playerDead_3.getFxImage());

@@ -32,7 +32,7 @@ public class Doll extends DynamicEntity {
     private void killDoll(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
-                my_score += 25;
+                my_score += 400;
                 animal.setImg(Sprite.dollDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
@@ -75,12 +75,16 @@ public class Doll extends DynamicEntity {
 
                 if (this.y / 32 > nextY)
                     Move.up(this);
-                if (this.y / 32 < nextY)
-                    Move.down(this);
-                if (this.x / 32 > nextX)
-                    Move.left(this);
-                if (this.x / 32 < nextX)
-                    Move.right(this);
+                else {
+                    if (this.y / 32 < nextY)
+                        Move.down(this);
+                    else {
+                        if (this.x / 32 > nextX)
+                            Move.left(this);
+                        else
+                            Move.right(this);
+                    }
+                }
             }
         }
     }
@@ -94,7 +98,7 @@ public class Doll extends DynamicEntity {
                 killDoll(animal);
             }
         }
-        if(player.isAlive())
+        if (player.isAlive())
             moveDoll();
     }
 }

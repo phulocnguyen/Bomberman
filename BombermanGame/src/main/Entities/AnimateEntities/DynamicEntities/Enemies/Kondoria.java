@@ -30,7 +30,7 @@ public class Kondoria extends DynamicEntity {
     private void killKondoria(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
-                my_score += 20;
+                my_score += 2000;
                 animal.setImg(Sprite.kondoriaDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {

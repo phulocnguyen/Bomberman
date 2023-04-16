@@ -21,7 +21,7 @@ public class Ballom extends DynamicEntity {
     private void killBallom(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
-                my_score += 10;
+                my_score += 100;
                 animal.setImg(Sprite.mobDead_1.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {

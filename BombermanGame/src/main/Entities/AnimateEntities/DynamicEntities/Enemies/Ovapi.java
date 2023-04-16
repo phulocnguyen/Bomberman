@@ -28,6 +28,7 @@ public class Ovapi extends DynamicEntity {
     private void killOvapi(DynamicEntity animal) {
         if (countKill % 16 == 0) {
             if (swapKill == 1) {
+                my_score += 1000;
                 animal.setImg(Sprite.ovapiDead.getFxImage());
                 swapKill = 2;
             } else if (swapKill == 2) {
@@ -46,7 +47,7 @@ public class Ovapi extends DynamicEntity {
         kill();
         countKill++;
         for (DynamicEntity animal : enemy) {
-            if (animal instanceof Pass && !animal.isAlive())
+            if (animal instanceof Ovapi && !animal.isAlive())
                 killOvapi(animal);
         }
 
