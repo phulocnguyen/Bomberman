@@ -80,7 +80,7 @@ Có 8 loại Enemy trong Bomberman
 - Có chế độ chọn màn chơi, cho phép người chơi trải nghiệm tất cả các map 
 <!-- - Hết 120s đếm ngược thì toàn bộ quái sẽ biến thành Pontan để đuổi theo người chơi -->
 <!-- - Điểm được lưu lại qua các màn chơi, leaderboard có thể lưu được top 3 điểm cao nhất -->
-- 
+- Điểm được tính trong quá trình chơi, dựa vào số enemy giết được 
 - Có thể tuỳ chỉnh âm lượng tuỳ ý người chơi
 - Các level được sắp xếp theo độ khó tăng dần dựa vào độ thông minh của các enemy, từ random, thông minh đến rất thông minh
 <!-- - Khi quái chết có hiện điểm của quái trên màn hình -->
