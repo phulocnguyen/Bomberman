@@ -1,5 +1,6 @@
 package main.Graphics;
 import javafx.scene.image.*;
+import main.Graphics.SpriteSheet;
 
 public class Sprite {
 
@@ -110,6 +111,42 @@ public class Sprite {
     public static Sprite kondoriaRight_3 = new Sprite(defaultSize, 11, 7, SpriteSheet._tiles, 16, 16);
 
     public static Sprite kondoriaDead = new Sprite(defaultSize, 10, 8, SpriteSheet._tiles, 16, 16);
+
+    /**
+     * Ghost.
+     */
+    public static Sprite ghostLeft_1 = new Sprite(defaultSize, 6, 5, SpriteSheet._tiles, 16, 16);
+    public static Sprite ghostLeft_2 = new Sprite(defaultSize, 6, 6, SpriteSheet._tiles, 16, 16);
+    public static Sprite ghostLeft_3 = new Sprite(defaultSize, 6, 7, SpriteSheet._tiles, 16, 16);
+
+    public static Sprite ghostRight_1 = new Sprite(defaultSize, 7, 5, SpriteSheet._tiles, 16, 16);
+    public static Sprite ghostRight_2 = new Sprite(defaultSize, 7, 6, SpriteSheet._tiles, 16, 16);
+    public static Sprite ghostRight_3 = new Sprite(defaultSize, 7, 7, SpriteSheet._tiles, 16, 16);
+
+    public static Sprite ghostDead = new Sprite(defaultSize,6,8 , SpriteSheet._tiles, 16, 16);
+
+
+    //Pass
+	public static Sprite passLeft_1 = new Sprite(defaultSize, 4, 5, SpriteSheet._tiles, 16, 16);
+	public static Sprite passLeft_2 = new Sprite(defaultSize, 4, 6, SpriteSheet._tiles, 16, 16);
+	public static Sprite passLeft_3 = new Sprite(defaultSize, 4, 7, SpriteSheet._tiles, 16, 16);
+
+	public static Sprite passRight_1 = new Sprite(defaultSize, 5, 5, SpriteSheet._tiles, 16, 16);
+	public static Sprite passRight_2 = new Sprite(defaultSize, 5, 6, SpriteSheet._tiles, 16, 16);
+	public static Sprite passRight_3 = new Sprite(defaultSize, 5, 7, SpriteSheet._tiles, 16, 16);
+
+	public static Sprite passDead = new Sprite(defaultSize, 4, 8, SpriteSheet._tiles, 16, 16);
+
+    //Ovapi
+	public static Sprite ovapiLeft_1 = new Sprite(defaultSize, 6, 5, SpriteSheet._tiles, 16, 16);
+	public static Sprite ovapiLeft_2 = new Sprite(defaultSize, 6, 6, SpriteSheet._tiles, 16, 16);
+	public static Sprite ovapiLeft_3 = new Sprite(defaultSize, 6, 7, SpriteSheet._tiles, 16, 16);
+
+	public static Sprite ovapiRight_1 = new Sprite(defaultSize, 7, 5, SpriteSheet._tiles, 16, 16);
+	public static Sprite ovapiRight_2 = new Sprite(defaultSize, 7, 6, SpriteSheet._tiles, 16, 16);
+	public static Sprite ovapiRight_3 = new Sprite(defaultSize, 7, 7, SpriteSheet._tiles, 16, 16);
+
+	public static Sprite ovapiDead = new Sprite(defaultSize, 6, 8, SpriteSheet._tiles, 16, 16);
 
     //ALL
     public static Sprite mobDead_1 = new Sprite(defaultSize, 15, 0, SpriteSheet._tiles, 16, 16);
