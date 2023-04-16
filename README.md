@@ -76,13 +76,13 @@ Có 8 loại Enemy trong Bomberman
 | Change level | Shift + level       | -->
 
 ## 6. Điểm đặc biệt của game
-- Có set up để kết nối với thiết bị điện thoại để sử dụng như 1 remote controller, giúp cho người dùng có thể dễ dàng trải nghiệm game hơn
+<!-- - Có set up để kết nối với thiết bị điện thoại để sử dụng như 1 remote controller, giúp cho người dùng có thể dễ dàng trải nghiệm game hơn -->
 - Có chế độ chọn màn chơi, cho phép người chơi trải nghiệm tất cả các map 
-- Hết 120s đếm ngược thì toàn bộ quái sẽ biến thành Pontan để đuổi theo người chơi
-- Điểm được lưu lại qua các màn chơi, leaderboard có thể lưu được top 3 điểm cao nhất
+<!-- - Hết 120s đếm ngược thì toàn bộ quái sẽ biến thành Pontan để đuổi theo người chơi -->
+<!-- - Điểm được lưu lại qua các màn chơi, leaderboard có thể lưu được top 3 điểm cao nhất -->
 - Có thể tuỳ chỉnh âm lượng tuỳ ý người chơi
-- Quái được xử lí với nhiều chế độ thông minh khác nhau từ thấp, trung bình, đến rất thông minh
-- Khi quái chết có hiện điểm của quái trên màn hình
+- Các level được sắp xếp theo độ khó tăng dần dựa vào độ thông minh của các enemy, từ random, thông minh đến rất thông minh
+<!-- - Khi quái chết có hiện điểm của quái trên màn hình -->
 
 ## 7. Chức năng đã làm theo yêu cầu
 1. Thiết kế cây thừa kế cho các đối tượng game
@@ -92,7 +92,6 @@ Có 8 loại Enemy trong Bomberman
 5. Xử lý va chạm cho các đối tượng Bomber, Enemy, Wall, Brick, Bomb.
 6. Xử lý bom nổ.
 7. Xử lý khi Bomber sử dụng các Item và khi đi vào vị trí Portal.
-
 8. Nâng cấp thuật toán tìm đường cho Enemy. (bằng thuật toán A* và 1 thuật toán đơn giản khác)
 9. Cài đặt thêm các loại Enemy khác.
 10. Xử lý hiệu ứng âm thanh (thêm music & sound effects).
