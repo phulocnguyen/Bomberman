@@ -62,7 +62,7 @@ public class StartMenu {
             if (player.isAlive()) {
                 running = !running;
             } else {
-                new nowLevel(0);
+                new nowLevel(1);
                 running = true;
             }
             updateMenu();
