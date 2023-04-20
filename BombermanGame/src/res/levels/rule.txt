@@ -1,12 +1,12 @@
-1:  Portal
-2:  Wall
-3:  Brick
-#4:  BombItem
-#5:  FlamePassItem
-6:  SpeedItem
-7:  FlameItem
-8:  Ballom
-9:  Doll - AI
+01: Portal
+02: Wall
+03: Brick
+#4: BombItem
+#5: FlamePassItem
+06: SpeedItem
+07: FlameItem
+08: Ballom
+09: Doll
 10: Kondoria
 11: Minvo
 12: Oneal

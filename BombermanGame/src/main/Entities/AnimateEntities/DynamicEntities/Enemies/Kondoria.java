@@ -10,7 +10,7 @@ public class Kondoria extends DynamicEntity {
 
     private static int swapKill = 1;
     private static int countKill = 0;
-    private static boolean dir;
+    private boolean dir;
 
     public Kondoria(int x, int y, Image img) {
         super(x, y, img);
@@ -53,8 +53,8 @@ public class Kondoria extends DynamicEntity {
                 killKondoria(animal);
         }
 
-        if (this.y % 16 == 0 && this.x % 16 == 0) {
-            if (this.x / 32 <= 1 || this.x / 32 >= _width - 2)
+        if (this.y % 32 == 0 && this.x % 32 == 0) {
+            if (this.getX() / 32 <= 1 || this.getX() / 32 >= _width - 2)
                 dir = !dir;
 
             if (dir)

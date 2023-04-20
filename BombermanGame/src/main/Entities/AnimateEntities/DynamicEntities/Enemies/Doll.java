@@ -4,6 +4,7 @@ import main.Graphics.Sprite;
 import static main.BombermanGame.*;
 
 import java.util.List;
+import java.util.Random;
 
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
 import javafx.scene.image.Image;
@@ -74,17 +75,14 @@ public class Doll extends DynamicEntity {
                 int nextX = path.get(1).get_col();
 
                 if (this.y / 32 > nextY)
-                    Move.up(this);
-                else {
-                    if (this.y / 32 < nextY)
-                        Move.down(this);
-                    else {
-                        if (this.x / 32 > nextX)
-                            Move.left(this);
-                        else
-                            Move.right(this);
-                    }
-                }
+                    Move.up(this);  
+                else if (this.y / 32 < nextY)
+                    Move.down(this);
+                if (this.x / 32 > nextX)
+                    Move.left(this);
+                else if (this.x / 32 < nextX)
+                    Move.right(this);
+                
             }
         }
     }
@@ -98,7 +96,29 @@ public class Doll extends DynamicEntity {
                 killDoll(animal);
             }
         }
-        if (player.isAlive())
-            moveDoll();
+        int scopeX = Math.abs(this.getX() / 32 - player.getX() / 32);
+        int scopeY = Math.abs(this.getY() / 32 - player.getY() / 32);
+        if (player.isAlive() && this.x % 16 == 0 && this.y % 16 == 0) {
+            if (scopeX <= 4 && scopeY <= 4)
+                moveDoll();
+            else {
+                Random random = new Random();
+                int dir = random.nextInt(4);
+                switch (dir) {
+                    case 0:
+                        Move.down(this);
+                        break;
+                    case 1:
+                        Move.up(this);
+                        break;
+                    case 2:
+                        Move.left(this);
+                        break;
+                    case 3:
+                        Move.right(this);
+                        break;
+                }
+            }
+        }
     }
 }
