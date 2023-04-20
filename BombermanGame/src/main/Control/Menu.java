@@ -9,7 +9,12 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
+<<<<<<< Updated upstream
 import static main.BombermanGame.*;
+=======
+import static main.Utility.SoundManager.*;
+import static main.PvPGame.*;
+>>>>>>> Stashed changes
 import main.Levels.*;
 
 public class Menu {
@@ -50,10 +55,14 @@ public class Menu {
         root.getChildren().add(pane);
 
         statusGame.setOnMouseClicked(event -> {
-            if (player.isAlive()) {
+            if (player1.isAlive() && player2.isAlive()) {
                 running = !running;
             } else {
+<<<<<<< Updated upstream
                 new Level1();
+=======
+                new PvPLevel();
+>>>>>>> Stashed changes
                 running = true;
             }
             updateMenu();
@@ -61,17 +70,22 @@ public class Menu {
     }
 
     public static void updateMenu() {
+<<<<<<< Updated upstream
         level.setText("Level: " + _level);
         bomb.setText("Bombs: " + bombNumber);
 
         if (player.isAlive())
+=======
+        level.setText("Level: ");
+        if (player1.isAlive() && player2.isAlive()) {
+>>>>>>> Stashed changes
             if (running) {
                     Image pauseGame = new Image("images/pauseGame.png");
                 statusGame.setImage(pauseGame);
             } else {
                 Image playGame = new Image("images/playGame.png");
                 statusGame.setImage(playGame);
-            }
+            } }
         else {
             Image newGame = new Image("images/newGame.png");
             statusGame.setImage(newGame);

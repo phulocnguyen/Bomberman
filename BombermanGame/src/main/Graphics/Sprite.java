@@ -31,10 +31,17 @@ public class Sprite {
     | Bomber Sprites
     |--------------------------------------------------------------------------
      */
+<<<<<<< Updated upstream
     public static Sprite playerUp = new Sprite(defaultSize,0, 0, SpriteSheet._tiles, 12, 16);
     public static Sprite playerDown = new Sprite(defaultSize, 2, 0, SpriteSheet._tiles, 12, 15);
     public static Sprite playerLeft = new Sprite(defaultSize, 3, 0, SpriteSheet._tiles, 10, 15);
     public static Sprite playRight = new Sprite(defaultSize, 1, 0, SpriteSheet._tiles, 10, 16);
+=======
+    public static Sprite playerUp = new Sprite(defaultSize, 0, 0, SpriteSheet._tiles, 16, 16);
+    public static Sprite playerDown = new Sprite(defaultSize, 2, 0, SpriteSheet._tiles, 16, 16);
+    public static Sprite playerLeft = new Sprite(defaultSize, 3, 0, SpriteSheet._tiles, 16, 16);
+    public static Sprite playerRight = new Sprite(defaultSize, 1, 0, SpriteSheet._tiles, 16, 16);
+>>>>>>> Stashed changes
 
     public static Sprite playerUp_1 = new Sprite(defaultSize, 0, 1, SpriteSheet._tiles, 12, 16);
     public static Sprite playerUp_2 = new Sprite(defaultSize, 0, 2, SpriteSheet._tiles, 12, 15);

@@ -6,6 +6,23 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PvPGame",
+            "request": "launch",
+            "mainClass": "main.PvPGame",
+            "projectName": "Bomberman_79e07d8",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+
+        },
+        {
+            "type": "java",
+            "name": "PvPGame",
+            "request": "launch",
+            "mainClass": "main.PvPGame",
+            "projectName": "PvPGame_79e07d8",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "BombermanGame",
             "request": "launch",
             "mainClass": "main.BombermanGame",

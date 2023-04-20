@@ -315,13 +315,13 @@ public class Move {
     public static void right_step(DynamicEntity animal) {
         if (animal instanceof Bomber && animal.getX() % 8 == 0) {
             if (animal.getSwap() == 1) {
-                animal.setImg(Sprite.playRight.getFxImage());
+                animal.setImg(Sprite.playerRight.getFxImage());
                 animal.setSwap(2);
             } else if (animal.getSwap() == 2) {
                 animal.setImg(Sprite.playerRight_1.getFxImage());
                 animal.setSwap(3);
             } else if (animal.getSwap() == 3) {
-                animal.setImg(Sprite.playRight.getFxImage());
+                animal.setImg(Sprite.playerRight.getFxImage());
                 animal.setSwap(4);
             } else {
                 animal.setImg(Sprite.playerRight_2.getFxImage());
