@@ -8,6 +8,7 @@ import main.Entities.AnimateEntities.DynamicEntities.Enemies.*;
 import main.Graphics.CreateMap;
 import main.Graphics.Sprite;
 import main.Graphics.CreateEnemy;
+import main.Entities.AnimateEntities.DynamicEntities.Bomber;
 
 import static main.PvPGame.player1;
 import static main.PvPGame.player2;
@@ -23,11 +24,12 @@ import static main.Entities.Items.SpeedItem.speed;
 import static main.PvPGame.*;
 
 
+
 import javafx.scene.image.Image;
 
 public class PvPLevel {
     public PvPLevel() {
-        String path = "BombermanGame/src/res/levels/Level1.txt";
+        String path = "BombermanGame/src/res/levels/PvPmap.txt";
         enemy.clear();
         block.clear();
         swapKill = 1; 
@@ -40,6 +42,12 @@ public class PvPLevel {
         player1.setAlive(true);
         player1.setX(1 * Sprite.scaledSize);
         player1.setY(1 * Sprite.scaledSize);
+        
+        player1 = new Bomber(1, 1, Sprite.playerRight_2.getFxImage());
+        player1.setAlive(true);
+        player2 = new Bomber(23, 13, Sprite.playerLeft_2.getFxImage());
+        player2.setAlive(true);
+
 
         new CreateMap(path);
         
@@ -59,8 +67,5 @@ public class PvPLevel {
             enemy_.setAlive(true);
         }
 
-    }
-
-    private void CreatePvPMap(String path) {
     }
 }

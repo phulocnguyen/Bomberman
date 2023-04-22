@@ -64,7 +64,7 @@ public class Menu {
 
         statusGame.setOnMouseClicked(event -> {
             if (player1.isAlive() && player2.isAlive()) {
-                running = true;
+                running = !running;
             } else {
                 new PvPLevel();
                 running = true;

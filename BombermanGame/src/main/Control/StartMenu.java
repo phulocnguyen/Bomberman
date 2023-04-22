@@ -60,7 +60,7 @@ public class StartMenu {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
             if (player1.isAlive() && player2.isAlive()) {
-                running = true;
+                running = !running;
             } else {
                 new PvPLevel();
                 running = true;

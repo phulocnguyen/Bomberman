@@ -46,7 +46,8 @@ public class Bomber extends DynamicEntity {
     private void checkBomb() {
         if (list_Kill[player1.getX() / 32][player1.getY() / 32] == 4)
             player1.setAlive(false);
-        if (list_Kill[player2.getX() / 32][player2.getY() / 32] == 4)
+
+        else if (list_Kill[player2.getX() / 32][player2.getY() / 32] == 4)
             player2.setAlive(false);
     }
 
@@ -60,6 +61,8 @@ public class Bomber extends DynamicEntity {
                 break;
             case 3:
                 checkEnemy3();
+                break;
+            default:
                 break;
             
         }
@@ -103,10 +106,9 @@ public class Bomber extends DynamicEntity {
                     || ax == de.getX() && ay == de.getY() + 32
                     || ay == de.getY() && ax == de.getX() - 32
                     || ay == de.getY() && ax == de.getX() + 32) {
-                player1.alive = false;
+                player1.setAlive(false);
                 break;
             }
-        
             ax = player2.getX();
             ay = player2.getY();
             for (DynamicEntity de : enemy)
@@ -115,7 +117,7 @@ public class Bomber extends DynamicEntity {
                         || ax == de.getX() && ay == de.getY() + 32
                         || ay == de.getY() && ax == de.getX() - 32
                         || ay == de.getY() && ax == de.getX() + 32) {
-                    player2.alive = false;
+                    player2.setAlive(false);
                     break;
                 }
     }
@@ -128,7 +130,18 @@ public class Bomber extends DynamicEntity {
             int by = de.getY();
             if (ax == bx && by - 32 <= ay && by + 32 >= ay
                     || ay == by && bx - 32 <= ax && bx + 32 >= ax) {
-                player1.alive = false;
+                player1.setAlive(false);
+                break;
+            }
+        }
+        ax = player1.getX();
+        ay = player1.getY();
+        for (DynamicEntity de : enemy) {
+            int bx = de.getX();
+            int by = de.getY();
+            if (ax == bx && by - 32 <= ay && by + 32 >= ay
+                    || ay == by && bx - 32 <= ax && bx + 32 >= ax) {
+                player1.setAlive(false);
                 break;
             }
         }
@@ -142,7 +155,7 @@ public class Bomber extends DynamicEntity {
         if (!player1.isAlive())
             killBomber(player1);
     
-    if (!player2.isAlive())
+        if (!player2.isAlive())
             killBomber(player2);
     
 }
