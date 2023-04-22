@@ -88,7 +88,7 @@ public class PvPGame extends Application {
         Scene scene = new Scene(rootmain);
 
         scene.setOnKeyPressed(event -> {
-            if (player1.isAlive()  && player2.isAlive())
+            if (player1.isAlive()  || player2.isAlive())
                 switch (event.getCode()) {
                     case UP:
                         Move.up(player1);
@@ -148,9 +148,9 @@ public class PvPGame extends Application {
         timer.start();
 
         player1 = new Bomber(1, 1, Sprite.playerRight_2.getFxImage());
-        player1.setAlive(true);
+        player1.setAlive(false);
         player2 = new Bomber(WIDTH - 1, HEIGHT - 1, Sprite.playerLeft_2.getFxImage());
-        player2.setAlive(true);
+        player2.setAlive(false);
     }
 
     public void update() {

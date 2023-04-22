@@ -27,12 +27,12 @@ import javafx.scene.image.Image;
 
 public class PvPLevel {
     public PvPLevel() {
-        String path = "Bomberman/src/res/levels/Level1.txt";
+        String path = "BombermanGame/src/res/levels/Level1.txt";
         enemy.clear();
         block.clear();
         swapKill = 1; 
-        Player1Bomb.bomb_power = 0; 
-        Player2Bomb.bomb_power = 0; 
+        Player1Bomb.bomb_power = 1; 
+        Player2Bomb.bomb_power = 1; 
 
         player2.setX(1 * Sprite.scaledSize);
         player2.setY(1 * Sprite.scaledSize);
@@ -40,6 +40,7 @@ public class PvPLevel {
         player1.setAlive(true);
         player1.setX(1 * Sprite.scaledSize);
         player1.setY(1 * Sprite.scaledSize);
+
         new CreateMap(path);
         
         isSoundDied = false; 
