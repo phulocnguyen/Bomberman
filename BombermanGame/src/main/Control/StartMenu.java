@@ -11,7 +11,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import static main.Control.Menu.*;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 
 import main.Levels.*;
 public class StartMenu {
@@ -59,10 +59,10 @@ public class StartMenu {
         MenuNewGame.setOnMouseClicked(event -> {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
-            if (player.isAlive()) {
-                running = !running;
+            if (player1.isAlive() && player2.isAlive()) {
+                running = true;
             } else {
-                new nowLevel(1);
+                new PvPLevel();
                 running = true;
             }
             updateMenu();

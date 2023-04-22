@@ -1,7 +1,7 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies;
 
 import main.Graphics.Sprite;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
 import javafx.scene.image.Image;
 import main.Control.Move;
@@ -52,16 +52,16 @@ public class Ghost extends DynamicEntity {
         }
 
         if (this.y % 16 == 0 && this.x % 16 == 0) {
-            if (player.getX() < this.x) {
+            if (player2.getX() < this.x) {
                 Move.left(this);
             }
-            if (player.getX() > this.x) {
+            if (player2.getX() > this.x) {
                 Move.right(this);
             }
-            if (player.getY() > this.y) {
+            if (player2.getY() > this.y) {
                 Move.down(this);
             }
-            if (player.getY() < this.y) {
+            if (player2.getY() < this.y) {
                 Move.up(this);
             }
         }

@@ -1,6 +1,6 @@
 package main.Entities.Items;
 
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 import main.Graphics.Sprite;
 import main.Entities.Entity;
 
@@ -31,7 +31,13 @@ public class SpeedItem extends Item {
                     entity.setImg(Sprite.powerupSpeed.getFxImage());
 
         if (!this.gained)
-            if (player.getX() == this.x && player.getY() == this.y) {
+            if (player1.getX() == this.x && player1.getY() == this.y) {
+                this.setImg(Sprite.grass.getFxImage());
+                this.gained = true;
+                speed = 2;
+            }
+        if (!this.gained)
+            if (player1.getX() == this.x && player1.getY() == this.y) {
                 this.setImg(Sprite.grass.getFxImage());
                 this.gained = true;
                 speed = 2;

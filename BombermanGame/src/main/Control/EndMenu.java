@@ -11,7 +11,10 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import static main.Control.Menu.*;
-import static main.BombermanGame.*;
+import static main.PvPGame.player1;
+import static main.PvPGame.player2;
+import static main.PvPGame.running;
+
 
 import main.Levels.*;
 public class EndMenu {
@@ -41,11 +44,11 @@ public class EndMenu {
         MenuExit.setScaleX(0.28);
         MenuExit.setScaleY(0.28);
         
-        EndScore = new Text("SCORE: " + my_score);
-        EndScore.setFont(Font.font("Arial", FontWeight.BOLD, 25));
-        EndScore.setFill(Color.BLACK);
-        EndScore.setX(142);
-        EndScore.setY(135);
+        // EndScore = new Text("SCORE: " + my_score);
+        // EndScore.setFont(Font.font("Arial", FontWeight.BOLD, 25));
+        // EndScore.setFill(Color.BLACK);
+        // EndScore.setX(142);
+        // EndScore.setY(135);
         
         Pane pane = new Pane();
         pane.getChildren().addAll(MenuNewGame,MenuExit,GameOver,EndScore);
@@ -72,11 +75,11 @@ public class EndMenu {
         MenuNewGame.setOnMouseClicked(event -> {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
-            my_score = 0;
-            if (player.isAlive()) {
+            // my_score = 0;
+            if (player1.isAlive() && player2.isAlive()) {
                 running = !running;
             } else {
-                new nowLevel(1);
+                new PvPLevel();
                 running = true;
             }
             updateMenu();

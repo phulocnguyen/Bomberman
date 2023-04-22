@@ -10,7 +10,7 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import static main.Utility.SoundManager.*;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 import main.Levels.*;
 
 public class Menu {
@@ -63,10 +63,10 @@ public class Menu {
         });
 
         statusGame.setOnMouseClicked(event -> {
-            if (player.isAlive()) {
-                running = !running;
+            if (player1.isAlive() && player2.isAlive()) {
+                running = true;
             } else {
-                new nowLevel(0);
+                new PvPLevel();
                 running = true;
             }
             updateMenu();
@@ -89,8 +89,8 @@ public class Menu {
     }
 
     public static void updateMenu() {
-        level.setText("Level: " + _level);
-        if (player.isAlive())
+        level.setText("Level: ");
+        if (player1.isAlive() && player2.isAlive())
             if (running) {
                 Image pauseGame = new Image("images/pauseGame.png");
                 statusGame.setImage(pauseGame);

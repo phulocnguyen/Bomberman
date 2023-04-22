@@ -1,7 +1,7 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies;
 
 import main.Graphics.Sprite;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 
 import java.util.List;
 
@@ -49,7 +49,7 @@ public class Pass extends DynamicEntity {
     private void movePass() {
         if (this.x % 32 == 0 && this.y % 32 == 0) {
             Node initialNode = new Node(this.y / 32, this.x / 32);
-            Node finalNode = new Node(player.getY() / 32, player.getX() / 32);
+            Node finalNode = new Node(player2.getY() / 32, player2.getX() / 32);
 
             int rows = _height;
             int cols = _width;
@@ -95,7 +95,7 @@ public class Pass extends DynamicEntity {
                 killPass(animal);
         }
 
-        if (player.isAlive())
+        if (player2.isAlive())
             movePass();
     }
 }

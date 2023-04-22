@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 import main.Control.EndMenu;
 import main.Graphics.Sprite;
 
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 
 public class Bomber extends DynamicEntity {
     public static int swapKill = 1;
@@ -44,8 +44,10 @@ public class Bomber extends DynamicEntity {
     }
 
     private void checkBomb() {
-        if (list_Kill[player.getX() / 32][player.getY() / 32] == 4)
-            player.setAlive(false);
+        if (list_Kill[player1.getX() / 32][player1.getY() / 32] == 4)
+            player1.setAlive(false);
+        if (list_Kill[player2.getX() / 32][player2.getY() / 32] == 4)
+            player2.setAlive(false);
     }
 
     private void check(int x) {
@@ -64,43 +66,69 @@ public class Bomber extends DynamicEntity {
     }
 
     private void checkEnemy() {
-        int ax = player.getX() / 32;
-        int ay = player.getY() / 32;
+        int ax = player1.getX() / 32;
+        int ay = player1.getY() / 32;
         for (DynamicEntity de : enemy) {
             int bx = de.getX() / 32;
             int by = de.getY() / 32;
             if (ax == bx && ay == by
                     || ax == bx && ay == by + 1 || ax == bx && ay == by - 1
                     || ay == by && ax == bx + 1 || ay == by && ax == bx - 1) {
-                player.alive = false;
+                player1.alive = false;
                 break;
             }
         }
+
+        ax = player2.getX() / 32;
+        ay = player2.getY() / 32;
+        for (DynamicEntity de : enemy) {
+            int bx = de.getX() / 32;
+            int by = de.getY() / 32;
+            if (ax == bx && ay == by
+                    || ax == bx && ay == by + 1 || ax == bx && ay == by - 1
+                    || ay == by && ax == bx + 1 || ay == by && ax == bx - 1) {
+                player2.alive = false;
+                break;
+            }
+        }
+
     }
 
     private void checkEnemy2() {    //easy level
-        int ax = player.getX();
-        int ay = player.getY();
+        int ax = player1.getX();
+        int ay = player1.getY();
         for (DynamicEntity de : enemy)
             if (ax == de.getX() && ay == de.getY()
                     || ax == de.getX() && ay == de.getY() - 32
                     || ax == de.getX() && ay == de.getY() + 32
                     || ay == de.getY() && ax == de.getX() - 32
                     || ay == de.getY() && ax == de.getX() + 32) {
-                player.alive = false;
+                player1.alive = false;
                 break;
             }
+        
+            ax = player2.getX();
+            ay = player2.getY();
+            for (DynamicEntity de : enemy)
+                if (ax == de.getX() && ay == de.getY()
+                        || ax == de.getX() && ay == de.getY() - 32
+                        || ax == de.getX() && ay == de.getY() + 32
+                        || ay == de.getY() && ax == de.getX() - 32
+                        || ay == de.getY() && ax == de.getX() + 32) {
+                    player2.alive = false;
+                    break;
+                }
     }
 
     private void checkEnemy3() {
-        int ax = player.getX();
-        int ay = player.getY();
+        int ax = player1.getX();
+        int ay = player1.getY();
         for (DynamicEntity de : enemy) {
             int bx = de.getX();
             int by = de.getY();
             if (ax == bx && by - 32 <= ay && by + 32 >= ay
                     || ay == by && bx - 32 <= ax && bx + 32 >= ax) {
-                player.alive = false;
+                player1.alive = false;
                 break;
             }
         }
@@ -111,7 +139,11 @@ public class Bomber extends DynamicEntity {
         checkBomb();
         check(3);
         countKill++;
-        if (!player.isAlive())
-            killBomber(player);
-    }
+        if (!player1.isAlive())
+            killBomber(player1);
+    
+    if (!player2.isAlive())
+            killBomber(player2);
+    
+}
 }

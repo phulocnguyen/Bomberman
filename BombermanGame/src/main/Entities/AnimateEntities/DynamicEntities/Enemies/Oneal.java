@@ -1,7 +1,7 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies;
 
 import main.Graphics.Sprite;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 
 import java.util.List;
 import java.util.Random;
@@ -51,7 +51,7 @@ public class Oneal extends DynamicEntity {
     private void moveOneal() {
         if (this.x % 32 == 0 && this.y % 32 == 0) {
             Node initialNode = new Node(this.y / 32, this.x / 32);
-            Node finalNode = new Node(player.getY() / 32, player.getX() / 32);
+            Node finalNode = new Node(player1.getY() / 32, player1.getX() / 32);
 
             int rows = _height;
             int cols = _width;
@@ -97,9 +97,9 @@ public class Oneal extends DynamicEntity {
                 killOneal(animal);
         }
 
-        int scopeX = Math.abs(this.getX() / 32 - player.getX() / 32);
-        int scopeY = Math.abs(this.getY() / 32 - player.getY() / 32);
-        if (player.isAlive() && this.x % 16 == 0 && this.y % 16 == 0) {
+        int scopeX = Math.abs(this.getX() / 32 - player1.getX() / 32);
+        int scopeY = Math.abs(this.getY() / 32 - player1.getY() / 32);
+        if (player1.isAlive() && this.x % 16 == 0 && this.y % 16 == 0) {
             if (scopeX <= 4 && scopeY <= 4)
                 moveOneal();
             else {

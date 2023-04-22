@@ -1,7 +1,7 @@
 package main.Graphics;
 
 import main.Entities.AnimateEntities.DynamicEntities.Enemies.*;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 
 import java.io.File;
 import java.io.FileReader;

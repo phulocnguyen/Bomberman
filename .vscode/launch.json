@@ -6,10 +6,26 @@
     "configurations": [
         {
             "type": "java",
+            "name": "PvPGame",
+            "request": "launch",
+            "mainClass": "main.PvPGame",
+            "projectName": "Bomberman_79e07d8",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+
+        {
+            "type": "java",
+            "name": "PvPGame",
+            "request": "launch",
+            "mainClass": "main.PvPGame",
+            "projectName": "Bomberman_ced31e97",
+            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
+        },
+        {
+            "type": "java",
             "name": "BombermanGame",
             "request": "launch",
             "mainClass": "main.BombermanGame",
-<<<<<<< HEAD
             "projectName": "Bomberman_ced31e97",
             "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
         },
@@ -20,11 +36,6 @@
             "mainClass": "main.BombermanGame",
             "projectName": "Bomberman_79e07d8",
             "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
-=======
-            "projectName": "Bomberman_79e07d8",
-            "vmArgs": "--module-path \"javaFX/lib\" --add-modules javafx.controls,javafx.fxml"
-
->>>>>>> 3572188f73103c8e3291336b21ebec7f37803bc8
         },
         {
             "type": "java",

@@ -19,18 +19,19 @@ import main.Control.StartMenu;
 import main.Entities.Entity;
 import main.Entities.AnimateEntities.DynamicEntities.*;
 import main.Entities.AnimateEntities.DynamicEntities.Bomber;
-import main.Entities.AnimateEntities.StaticEntities.Portal;
-import main.Entities.AnimateEntities.Bomb;
+// import main.Entities.AnimateEntities.StaticEntities.Portal;
 import main.Graphics.Sprite;
 
-import static main.Levels.NextLevel.*;
+// import static main.Levels.NextLevel.*;
 import static main.Control.Menu.*;
-import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
+// import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
 import static main.Utility.SoundManager.updateSound;
+import main.Entities.AnimateEntities.Player1Bomb;
+import main.Entities.AnimateEntities.Player2Bomb;
 
 
 
-public class BombermanGame extends Application {
+public class PvPGame extends Application {
 
     /**
      * The default size of the window
@@ -45,10 +46,11 @@ public class BombermanGame extends Application {
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
     public static List<DynamicEntity> enemy = new ArrayList<>();       //Contains enemy entities
-    public static int[][] id_Objects;    //Two-dimensional array is used to test paths
-    public static int[][] list_Kill;     //Array containing dead positions
-    public static DynamicEntity player;
-    public static boolean running;
+    public static int[][] id_Objects = new int [WIDTH][HEIGHT];    //Two-dimensional array is used to test paths
+    public static int[][] list_Kill = new int [WIDTH][HEIGHT];     //Array containing dead positions
+    public static Bomber player1; 
+    public static Bomber player2;
+    public static boolean running = true;
     public static ImageView authorView;
     public static Group rootmain;
 
@@ -60,8 +62,9 @@ public class BombermanGame extends Application {
 
     public static Stage mainStage = null;
 
+   
     public static void main(String[] args) {
-        Application.launch(BombermanGame.class);
+        Application.launch(PvPGame.class);
     }
 
     @Override
@@ -85,22 +88,37 @@ public class BombermanGame extends Application {
         Scene scene = new Scene(rootmain);
 
         scene.setOnKeyPressed(event -> {
-            if (player.isAlive() && running)
+            if (player1.isAlive()  && player2.isAlive())
                 switch (event.getCode()) {
                     case UP:
-                        Move.up(player);
+                        Move.up(player1);
                         break;
                     case DOWN:
-                        Move.down(player);
+                        Move.down(player1);
                         break;
                     case LEFT:
-                        Move.left(player);
+                        Move.left(player1);
                         break;
                     case RIGHT:
-                        Move.right(player);
+                        Move.right(player1);
+                        break;
+                    case ENTER:
+                        Player1Bomb.putBomb();
+                        break;
+                    case W:
+                        Move.up(player2);
+                        break;
+                    case S:
+                        Move.down(player2);
+                        break;
+                    case A:
+                        Move.left(player2);
+                        break;
+                    case D:
+                        Move.right(player2);
                         break;
                     case SPACE:
-                        Bomb.putBomb();
+                        Player2Bomb.putBomb();
                         break;
                     default:
                         break;
@@ -129,20 +147,33 @@ public class BombermanGame extends Application {
         };
         timer.start();
 
-        player = new Bomber(1, 1, Sprite.playerRight_2.getFxImage());
-        player.setAlive(false);
+        player1 = new Bomber(1, 1, Sprite.playerRight_2.getFxImage());
+        player1.setAlive(true);
+        player2 = new Bomber(WIDTH - 1, HEIGHT - 1, Sprite.playerLeft_2.getFxImage());
+        player2.setAlive(true);
     }
 
     public void update() {
+
         block.forEach(Entity::update);
         enemy.forEach(Entity::update);
-        player.update();
 
-        player.setCountToRun(player.getCountToRun() + 1);
-        if (player.getCountToRun() == 4) {
-            Move.checkRun(player);
-            player.setCountToRun(0);
+        // player1 update
+        player1.update();
+        player1.setCountToRun(player1.getCountToRun() + 1);
+        if (player1.getCountToRun() == 4) {
+            Move.checkRun(player1);
+            player1.setCountToRun(0);
         }
+
+        // player2 update
+        player2.update();
+        player2.setCountToRun(player2.getCountToRun() + 1);
+        if (player2.getCountToRun() == 4) {
+            Move.checkRun(player2);
+            player2.setCountToRun(0);
+        }
+
 
         for (DynamicEntity a : enemy) {
             a.setCountToRun(a.getCountToRun() + 1);
@@ -151,33 +182,22 @@ public class BombermanGame extends Application {
                 a.setCountToRun(0);
             }
         }
-
-        if (enemy.size() == 0 && !isPortal && !wait) {
-            Entity portal = new Portal(_width - 2, _height - 2, Sprite.portal.getFxImage());
-            block.add(portal);
-            if (player.getX() / 32 == portal.getX() / 32 && player.getY() / 32 == portal.getY() / 32) {
-                wait = true;
-                waitingTime = System.currentTimeMillis();
-            }
-        }
-        waitToLevelUp();
-        updateSound();
     }
 
     public void render() {
         gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-        block.forEach(g -> g.render(gc));
         enemy.forEach(g -> g.render(gc));
-        player.render(gc);
+        block.forEach(g -> g.render(gc));
+        player1.render(gc);
+        player2.render(gc);
     }
 
     public void time() {
         frame++;
-
         long now = System.currentTimeMillis();
         if (now - lastTime > 1000) {
             lastTime = System.currentTimeMillis();
-            mainStage.setTitle("Bomberman | " + frame + " frame");
+            mainStage.setTitle("Bomberman  " + frame + " frame");
             frame = 0;
             if(my_score < 0)
                 my_score = 0;
@@ -185,7 +205,8 @@ public class BombermanGame extends Application {
             time.setText("Time: " + timeNumber);
             timeNumber--;
             if (timeNumber < 0)
-                player.setAlive(false);
+                player1.setAlive(false);
+                player2.setAlive(false);
         }
     }
-}
+ }

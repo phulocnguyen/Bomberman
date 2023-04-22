@@ -1,7 +1,7 @@
 package main.Entities.AnimateEntities.DynamicEntities.Enemies;
 
 import main.Graphics.Sprite;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 import main.Entities.AnimateEntities.DynamicEntities.DynamicEntity;
 import javafx.scene.image.Image;
 import main.Control.Move;

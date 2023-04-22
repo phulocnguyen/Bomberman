@@ -3,7 +3,7 @@ package main.Entities.AnimateEntities.StaticEntities;
 import javafx.scene.image.Image;
 import main.Entities.Entity;
 import main.Graphics.Sprite;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 
 
 public class Brick extends Entity {

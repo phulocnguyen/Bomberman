@@ -9,8 +9,8 @@ import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.JFrame;
 
-import static main.BombermanGame.*;
-import static main.Levels.NextLevel.*;
+import static main.PvPGame.*;
+// import static main.Levels.NextLevel.*;
 
 public class SoundManager extends JFrame {
     public static boolean isSound = true;
@@ -20,7 +20,7 @@ public class SoundManager extends JFrame {
 
     public static boolean isSoundDied;
     public static boolean isSoundTitle;
-    private static boolean isSoundComplete;
+    // private static boolean isSoundComplete;
 
     public SoundManager(String _name, String _sound) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -61,7 +61,7 @@ public class SoundManager extends JFrame {
                 new SoundManager("sound/title_screen.wav", "title");
                 isSoundTitle = true;
             }
-            if (!player.isAlive()) {
+            if (!player1.isAlive() || !player2.isAlive()) {
                 titleScreen.close();
                 bombExplosion.close();
                 if (!isSoundDied) {
@@ -69,14 +69,14 @@ public class SoundManager extends JFrame {
                     isSoundDied = true;
                 }
             }
-            if (wait) {
-                titleScreen.close();
-                bombExplosion.close();
-                if (!isSoundComplete) {
-                    new SoundManager("sound/level_complete.wav", "default");
-                    isSoundComplete = true;
-                }
-            }
+            // if (wait) {
+            //     titleScreen.close();
+            //     bombExplosion.close();
+            //     if (!isSoundComplete) {
+            //         new SoundManager("sound/level_complete.wav", "default");
+            //         isSoundComplete = true;
+            //     }
+            // }
         } else {
             titleScreen.stop();
             isSoundTitle = false;

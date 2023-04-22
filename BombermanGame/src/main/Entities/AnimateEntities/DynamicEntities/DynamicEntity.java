@@ -1,6 +1,6 @@
 package main.Entities.AnimateEntities.DynamicEntities;
 
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 import javafx.scene.image.Image;
 import main.Entities.*;
 

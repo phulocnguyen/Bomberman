@@ -1,7 +1,7 @@
 package main.Control;
 
 import main.Entities.Entity;
-import static main.BombermanGame.*;
+import static main.PvPGame.*;
 import static main.Graphics.Sprite.*;
 
 public class Blocked {
