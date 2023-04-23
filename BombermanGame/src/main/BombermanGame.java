@@ -1,5 +1,6 @@
 package main;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-
+import main.Control.HighScore;
+import main.Control.HighScoreMenu;
 import main.Control.Menu;
 import main.Control.Move;
 import main.Control.StartMenu;
@@ -59,13 +61,15 @@ public class BombermanGame extends Application {
     private long lastTime;
 
     public static Stage mainStage = null;
+    public static HighScore gamehighscore;
 
     public static void main(String[] args) {
         Application.launch(BombermanGame.class);
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
+        gamehighscore = new HighScore();
         canvas = new Canvas(Sprite.scaledSize * WIDTH, Sprite.scaledSize * HEIGHT);
         canvas.setTranslateY(32);
         gc = canvas.getGraphicsContext2D();
@@ -81,6 +85,7 @@ public class BombermanGame extends Application {
         rootmain.getChildren().add(authorView);
         StartMenu.createStartMenu(rootmain);
         //EndMenu.createEndMenu(rootmain);
+        //HighScoreMenu.createHighScoreMenu(rootmain);
         
         Scene scene = new Scene(rootmain);
 

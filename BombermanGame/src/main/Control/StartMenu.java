@@ -17,13 +17,14 @@ import main.Levels.*;
 public class StartMenu {
     private static ImageView MenuNewGame;
     private static ImageView MenuExit;
+    private static ImageView HighScoreButton;
     public static Text status;
     
     public static void createStartMenu(Group root) {
         Image newGame1 = new Image("images/endNewGame.png");
         MenuNewGame = new ImageView(newGame1);
         MenuNewGame.setX(-185);
-        MenuNewGame.setY(105);
+        MenuNewGame.setY(55);
         MenuNewGame.setScaleX(0.4);
         MenuNewGame.setScaleY(0.4);
         Image exitGame = new Image("images/endMenuExit.png");
@@ -32,12 +33,18 @@ public class StartMenu {
         MenuExit.setY(170);
         MenuExit.setScaleX(0.3);
         MenuExit.setScaleY(0.3);
+        Image highscorebutton = new Image("images/HighScore.png");
+        HighScoreButton = new ImageView(highscorebutton);
+        HighScoreButton.setX(-198.5);
+        HighScoreButton.setY(88);
+        HighScoreButton.setScaleX(0.3);
+        HighScoreButton.setScaleY(0.3);
         Pane pane = new Pane();
-        pane.getChildren().addAll(MenuNewGame, MenuExit);
+        pane.getChildren().addAll(MenuNewGame, MenuExit, HighScoreButton);
         pane.setMinSize(400, 300);
         pane.setMaxSize(400, 300);
         pane.setLayoutX(10);
-        pane.setLayoutY(180);
+        pane.setLayoutY(200);
         //pane.setStyle("-fx-background-color: #353535");
 
         root.getChildren().add(pane);
@@ -70,6 +77,10 @@ public class StartMenu {
 
         MenuExit.setOnMouseClicked(event -> {
             Platform.exit();
+        });
+
+        HighScoreButton.setOnMouseClicked(event -> {
+            HighScoreMenu.createHighScoreMenu(rootmain);
         });
     }
 }

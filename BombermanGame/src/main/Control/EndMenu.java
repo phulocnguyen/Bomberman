@@ -11,6 +11,9 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import static main.Control.Menu.*;
+
+import java.io.IOException;
+
 import static main.BombermanGame.*;
 
 import main.Levels.*;
@@ -72,6 +75,11 @@ public class EndMenu {
         MenuNewGame.setOnMouseClicked(event -> {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
+            try {
+                gamehighscore.writeHighScore(my_score);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             my_score = 0;
             if (player.isAlive()) {
                 running = !running;
@@ -83,6 +91,12 @@ public class EndMenu {
         });
 
         MenuExit.setOnMouseClicked(event -> {
+            try {
+                gamehighscore.writeHighScore(my_score);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            my_score = 0;
             Platform.exit();
         });
     }
