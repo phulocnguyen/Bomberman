@@ -59,12 +59,18 @@ public class StartMenu {
         MenuNewGame.setOnMouseClicked(event -> {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
+<<<<<<< Updated upstream
             if (player1.isAlive() && player2.isAlive()) {
                 running = !running;
             } else {
+=======
+            // if (player1.isAlive() && player2.isAlive() ) {
+            //     running = !running;
+            // } else {
+>>>>>>> Stashed changes
                 new PvPLevel();
                 running = true;
-            }
+            // }
             updateMenu();
         });
 

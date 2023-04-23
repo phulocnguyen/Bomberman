@@ -5,6 +5,7 @@ import javafx.event.EventHandler;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+<<<<<<< Updated upstream
 import main.PvPGame;
 import main.Entities.AnimateEntities.Bomb;
 import main.Entities.AnimateEntities.DynamicEntities.Bomber;
@@ -28,6 +29,19 @@ public class PvPBomber extends DynamicEntity {
     public static int bomb_power = 0;
     private static final int MENU_START_X = 270;
     private static final int MENU_START_Y = 190;
+=======
+import main.Graphics.Sprite;
+import static main.PvPGame.*;
+
+public class PvPBomber extends DynamicEntity {
+
+    public static int swap_Kill = 1;
+    private static int count_kill = 0;
+    // public static int bomb_number = 20;
+    public static int bomb_power = 0;
+    // private static final int MENU_START_X = 270;
+    // private static final int MENU_START_Y = 190;
+>>>>>>> Stashed changes
     private long lastTime;
 
     // private final MenuButton ExitButton = new MenuButton("EXIT");
@@ -36,6 +50,11 @@ public class PvPBomber extends DynamicEntity {
     private Image OverImg;
     private boolean p1;
 
+<<<<<<< Updated upstream
+=======
+    public boolean isAlive = true;
+
+>>>>>>> Stashed changes
     public PvPBomber() {
 
     }
@@ -48,6 +67,7 @@ public class PvPBomber extends DynamicEntity {
         super(8, 1, "down", 0, 0);
     }
 
+<<<<<<< Updated upstream
     private void killBomber(Entity entity) {
         if (count_kill % 16 == 0) {
             if (swap_Kill_pvp == 1) {
@@ -108,6 +128,68 @@ public class PvPBomber extends DynamicEntity {
     // //     ExitButton.setLayoutX(MENU_START_X);
     // //     ExitButton.setLayoutY(MENU_START_Y + 2 * 120 - 50);
     // //     ExitButton.setOnAction(new EventHandler<ActionEvent>() {
+=======
+    private void killBomber(DynamicEntity entity) {
+        if (count_kill % 16 == 0) {
+            if (swap_Kill == 1) {
+                entity.setImg(Sprite.playerDead_1.getFxImage());
+                swap_Kill = 2;
+            } else if (swap_Kill == 2) {
+                entity.setImg(Sprite.playerDead_2.getFxImage());
+                swap_Kill = 3;
+            } else if (swap_Kill == 3) {
+                entity.setImg(Sprite.playerDead_3.getFxImage());
+                swap_Kill = 4;
+            } else if (swap_Kill == 4) {
+                entity.setImg(Sprite.playerDead_1.getFxImage());
+                swap_Kill = 5;
+            } else if (swap_Kill == 5) {
+                entity.setImg(Sprite.playerDead_2.getFxImage());
+                swap_Kill = 6;
+            } else if (swap_Kill == 6) {
+                entity.setImg(Sprite.playerDead_3.getFxImage());
+                swap_Kill = 7;
+            } else {
+                running = false;
+            }
+                // Bomber.pvpDem = 1;
+
+        //         try {
+        //             if (p1 == false) {
+        //                 OverImg = new Image(new FileInputStream("res\\textures\\player2win.png"), 600, 120, false,
+        //                         true);
+        //                 Overimg = new ImageView(OverImg);
+        //                 Overimg.setLayoutX(100);
+        //                 Overimg.setLayoutY(70);
+        //             }
+        //             if (p1 == true) {
+        //                 OverImg = new Image(new FileInputStream("res\\textures\\player1win.png"), 600, 120, false,
+        //                         true);
+        //                 Overimg = new ImageView(OverImg);
+        //                 Overimg.setLayoutX(100);
+        //                 Overimg.setLayoutY(70);
+        //             }
+        //             pvpRoot.getChildren().add(Overimg);
+        //             createdRestartButton();
+        //             createdExitButton();
+
+        //         } catch (Exception e) {
+        //         }
+        //     }
+        // }
+    }}
+
+    // private void addMenuButton(MenuButton button) {
+    //     pvpRoot.getChildren().add(button);
+    // }
+
+    // private void createdExitButton() {
+
+    //     addMenuButton(ExitButton);
+    //     ExitButton.setLayoutX(MENU_START_X);
+    //     ExitButton.setLayoutY(MENU_START_Y + 2 * 120 - 50);
+    //     ExitButton.setOnAction(new EventHandler<ActionEvent>() {
+>>>>>>> Stashed changes
     //         @Override
     //         public void handle(ActionEvent actionEvent) {
     //             pvpStage.close();
@@ -116,7 +198,11 @@ public class PvPBomber extends DynamicEntity {
     //     });
     // }
 
+<<<<<<< Updated upstream
     // // private void createdRestartButton() {
+=======
+    // private void createdRestartButton() {
+>>>>>>> Stashed changes
 
     //     addMenuButton(RestartButton);
     //     RestartButton.setLayoutX(MENU_START_X);
@@ -146,11 +232,15 @@ public class PvPBomber extends DynamicEntity {
 
     @Override
     public void update() {
+<<<<<<< Updated upstream
         // testing commit
+=======
+>>>>>>> Stashed changes
         checkBombs();
         count_kill++;
         if (!player1.isAlive()) {
             killBomber(player1);
+<<<<<<< Updated upstream
             p1 = false;
         }
         if (!player2.isAlive()) {
@@ -159,3 +249,11 @@ public class PvPBomber extends DynamicEntity {
         }
     }
 }
+=======
+        }
+        if (!player2.isAlive()) {
+            killBomber(player2);
+        }
+    }
+}
+>>>>>>> Stashed changes

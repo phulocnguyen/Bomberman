@@ -18,13 +18,20 @@ import main.Control.Move;
 import main.Control.StartMenu;
 import main.Entities.Entity;
 import main.Entities.AnimateEntities.DynamicEntities.*;
+<<<<<<< Updated upstream
 import main.Entities.AnimateEntities.DynamicEntities.Bomber;
 import main.Entities.AnimateEntities.StaticEntities.Portal;
+=======
+import main.Entities.AnimateEntities.DynamicEntities.PvPBomber;
+>>>>>>> Stashed changes
 import main.Graphics.Sprite;
 
 // import static main.Levels.NextLevel.*;
 import static main.Control.Menu.*;
+<<<<<<< Updated upstream
 import static main.Entities.AnimateEntities.StaticEntities.Portal.isPortal;
+=======
+>>>>>>> Stashed changes
 import static main.Utility.SoundManager.updateSound;
 import main.Entities.AnimateEntities.Player1Bomb;
 import main.Entities.AnimateEntities.Player2Bomb;
@@ -154,9 +161,15 @@ public class Test extends Application {
         };
         timer.start();
 
+<<<<<<< Updated upstream
         player1 = new Bomber(1, 1, Sprite.playerRight_2.getFxImage());
         player1.setAlive(false);
         player2 = new Bomber(WIDTH - 2, HEIGHT - 4, Sprite.playerLeft.getFxImage());
+=======
+        player1 = new PvPBomber(1, 1, Sprite.playerRight_2.getFxImage());
+        player1.setAlive(false);
+        player2 = new PvPBomber(WIDTH - 2, HEIGHT - 2, Sprite.playerLeft.getFxImage());
+>>>>>>> Stashed changes
         player2.setAlive(false);
     }
 

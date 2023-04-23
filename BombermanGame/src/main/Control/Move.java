@@ -25,7 +25,7 @@ public class Move {
     };
 
     private static int setSpeedEntity(DynamicEntity animal) {
-        if (animal instanceof Bomber) {
+        if (animal instanceof PvPBomber) {
             if (speed < 4) {
                 if (speed == 3)
                     return 2 * SpeedEntity(3);
@@ -46,7 +46,7 @@ public class Move {
     }
 
     public static void checkRun(DynamicEntity animal) {
-        if (animal instanceof Bomber && animal.getCount() > 0) {
+        if (animal instanceof PvPBomber && animal.getCount() > 0) {
             setDirection(animal.getDirection(), animal, setSpeedEntity(animal));
             animal.setCount(animal.getCount() - 1);
         } else {
@@ -127,7 +127,7 @@ public class Move {
     }
 
     private static void down_step(DynamicEntity animal) {
-        if (animal instanceof Bomber && animal.getY() % Set1(animal) == 0) {
+        if (animal instanceof PvPBomber && animal.getY() % Set1(animal) == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.playerDown.getFxImage());
                 animal.setSwap(2);
@@ -265,7 +265,7 @@ public class Move {
     }
 
     private static void up_step(DynamicEntity animal) {
-        if (animal instanceof Bomber && animal.getY() % Set1(animal) == 0) {
+        if (animal instanceof PvPBomber && animal.getY() % Set1(animal) == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.playerUp.getFxImage());
                 animal.setSwap(2);
@@ -403,7 +403,7 @@ public class Move {
     }
 
     private static void left_step(DynamicEntity animal) {
-        if (animal instanceof Bomber && animal.getX() % Set1(animal) == 0) {
+        if (animal instanceof PvPBomber && animal.getX() % Set1(animal) == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.playerLeft.getFxImage());
                 animal.setSwap(2);
@@ -541,7 +541,7 @@ public class Move {
     }
 
     public static void right_step(DynamicEntity animal) {
-        if (animal instanceof Bomber && animal.getX() % Set1(animal) == 0) {
+        if (animal instanceof PvPBomber && animal.getX() % Set1(animal) == 0) {
             if (animal.getSwap() == 1) {
                 animal.setImg(Sprite.playRight.getFxImage());
                 animal.setSwap(2);

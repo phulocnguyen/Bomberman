@@ -11,11 +11,16 @@ import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 
 import static main.Control.Menu.*;
+<<<<<<< Updated upstream
 import static main.PvPGame.player1;
 import static main.PvPGame.player2;
 import static main.PvPGame.running;
 
+=======
+import static main.PvPGame.*;
+>>>>>>> Stashed changes
 
+import main.PvPGame;
 import main.Levels.*;
 public class EndMenu {
     private static ImageView MenuNewGame;
@@ -75,6 +80,7 @@ public class EndMenu {
         MenuNewGame.setOnMouseClicked(event -> {
             root.getChildren().remove(pane);
             root.getChildren().remove(pane1);
+<<<<<<< Updated upstream
             // my_score = 0;
             if (player1.isAlive() && player2.isAlive()) {
                 running = !running;
@@ -82,6 +88,11 @@ public class EndMenu {
                 new PvPLevel();
                 running = true;
             }
+=======
+            my_score = 0;
+            new PvPGame();
+            running = true;
+>>>>>>> Stashed changes
             updateMenu();
         });
 

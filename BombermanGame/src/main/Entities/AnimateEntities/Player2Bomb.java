@@ -36,16 +36,26 @@ public class Player2Bomb extends Entity {
     private static boolean isEdge = false;
     private static boolean isMiddle = false;
 
+<<<<<<< Updated upstream
     public static int isBomb = 0; // 0 no bomb , 1 has bomb, 2 exploded
+=======
+    public static int isBomb2 = 0; // 0 no bomb , 1 has bomb, 2 exploded
+>>>>>>> Stashed changes
 
     public Player2Bomb(int x, int y, Image img) {
         super(x, y, img);
     }
 
     public static void putBomb() {
+<<<<<<< Updated upstream
         if (isBomb == 0) {
             my_score -= 50;
             isBomb = 1;
+=======
+        if (isBomb2 == 0) {
+            my_score -= 50;
+            isBomb2 = 1;
+>>>>>>> Stashed changes
             bombTime = System.currentTimeMillis();
             tmpTime = bombTime;
             int x = player2.getX() / 32;
@@ -148,14 +158,22 @@ public class Player2Bomb extends Entity {
     }
 
     private static void checkActive() {
+<<<<<<< Updated upstream
         if (isBomb == 1) {
+=======
+        if (isBomb2 == 1) {
+>>>>>>> Stashed changes
             if (System.currentTimeMillis() - bombTime < 2000) {
                 if (System.currentTimeMillis() - tmpTime > 100) {
                     activateBomb();
                     tmpTime += 100;
                 }
             } else {
+<<<<<<< Updated upstream
                 isBomb = 2;
+=======
+                isBomb2 = 2;
+>>>>>>> Stashed changes
                 bombTime = System.currentTimeMillis();
                 tmpTime = bombTime;
             }
@@ -237,7 +255,11 @@ public class Player2Bomb extends Entity {
     }
 
     private static void checkExplosion() {
+<<<<<<< Updated upstream
         if (isBomb == 2)
+=======
+        if (isBomb2 == 2)
+>>>>>>> Stashed changes
             if (System.currentTimeMillis() - bombTime < 1000) {
                 if (System.currentTimeMillis() - tmpTime > 100) {
                     if (!isEdge) {
@@ -255,7 +277,11 @@ public class Player2Bomb extends Entity {
                     tmpTime += 100;
                 }
             } else {
+<<<<<<< Updated upstream
                 isBomb = 0;
+=======
+                isBomb2 = 0;
+>>>>>>> Stashed changes
                 id_Objects[bomb.getX() / 32][bomb.getY() / 32] = 0;
                 list_Kill[bomb.getX() / 32][bomb.getY() / 32] = 0;
                 bomb.setImg(Sprite.transparent.getFxImage());

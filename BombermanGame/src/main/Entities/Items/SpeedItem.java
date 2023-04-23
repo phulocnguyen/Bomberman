@@ -37,7 +37,11 @@ public class SpeedItem extends Item {
                 speed = 2;
             }
         if (!this.gained)
+<<<<<<< Updated upstream
             if (player1.getX() == this.x && player1.getY() == this.y) {
+=======
+            if (player2.getX() == this.x && player2.getY() == this.y) {
+>>>>>>> Stashed changes
                 this.setImg(Sprite.grass.getFxImage());
                 this.gained = true;
                 speed = 2;

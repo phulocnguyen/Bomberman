@@ -63,12 +63,14 @@ public class Menu {
         });
 
         statusGame.setOnMouseClicked(event -> {
+<<<<<<< Updated upstream
             if (player1.isAlive() && player2.isAlive()) {
                 running = !running;
             } else {
+=======
+>>>>>>> Stashed changes
                 new PvPLevel();
                 running = true;
-            }
             updateMenu();
         });
     }
@@ -89,9 +91,15 @@ public class Menu {
     }
 
     public static void updateMenu() {
+<<<<<<< Updated upstream
         level.setText("Level: ");
         if (player1.isAlive() && player2.isAlive())
             if (running) {
+=======
+        level.setText("Level: " + _level);
+        if (player1.isAlive() && player2.isAlive())
+            if (running ==  true) {
+>>>>>>> Stashed changes
                 Image pauseGame = new Image("images/pauseGame.png");
                 statusGame.setImage(pauseGame);
             } else {

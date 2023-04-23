@@ -18,7 +18,11 @@ import main.Control.Move;
 import main.Control.StartMenu;
 import main.Entities.Entity;
 import main.Entities.AnimateEntities.DynamicEntities.*;
+<<<<<<< Updated upstream
 import main.Entities.AnimateEntities.DynamicEntities.Bomber;
+=======
+import main.Entities.AnimateEntities.DynamicEntities.PvPBomber;
+>>>>>>> Stashed changes
 // import main.Entities.AnimateEntities.StaticEntities.Portal;
 import main.Graphics.Sprite;
 
@@ -46,11 +50,19 @@ public class PvPGame extends Application {
 
     public static final List<Entity> block = new ArrayList<>(); //Contains fixed entities
     public static List<DynamicEntity> enemy = new ArrayList<>();       //Contains enemy entities
+<<<<<<< Updated upstream
     public static int[][] id_Objects = new int [WIDTH][HEIGHT];    //Two-dimensional array is used to test paths
     public static int[][] list_Kill = new int [WIDTH][HEIGHT];     //Array containing dead positions
     public static Bomber player1; 
     public static Bomber player2;
     public static boolean running = true;
+=======
+    public static int[][] id_Objects = new int[HEIGHT][WIDTH];    //Two-dimensional array is used to test paths
+    public static int[][] list_Kill = new int[HEIGHT][WIDTH];    //Array containing dead positions
+    public static PvPBomber player1;
+    public static PvPBomber player2;
+    public static boolean running;
+>>>>>>> Stashed changes
     public static ImageView authorView;
     public static Group rootmain;
 
@@ -88,7 +100,11 @@ public class PvPGame extends Application {
         Scene scene = new Scene(rootmain);
 
         scene.setOnKeyPressed(event -> {
+<<<<<<< Updated upstream
             if (player1.isAlive() && player2.isAlive())
+=======
+            if (running)
+>>>>>>> Stashed changes
                 switch (event.getCode()) {
                     case UP:
                         Move.up(player1);
@@ -147,6 +163,7 @@ public class PvPGame extends Application {
         };
         timer.start();
 
+<<<<<<< Updated upstream
         player1 = new Bomber(1, 1, Sprite.playerRight_2.getFxImage());
         player1.setAlive(true);
         player2 = new Bomber(23, 13, Sprite.playerLeft_2.getFxImage());
@@ -158,12 +175,43 @@ public class PvPGame extends Application {
         block.forEach(Entity::update);
         enemy.forEach(Entity::update);
 
+=======
+        player1 = new PvPBomber(1, 1, Sprite.playerRight_2.getFxImage());
+        player2 = new PvPBomber(23, 13, Sprite.playerLeft_2.getFxImage());
+    
+    }
+
+    public void update() {
+
+
+        // enemy update
+        for (int i = 0; i < enemy.size(); ++i) {
+            enemy.get(i).update();
+        }
+
+>>>>>>> Stashed changes
         // player1 update
         player1.update();
         player1.setCountToRun(player1.getCountToRun() + 1);
         if (player1.getCountToRun() == 4) {
             Move.checkRun(player1);
             player1.setCountToRun(0);
+<<<<<<< Updated upstream
+=======
+        }
+
+        // player2 update
+        player2.update();
+        player2.setCountToRun(player2.getCountToRun() + 1);
+        if (player2.getCountToRun() == 4) {
+            Move.checkRun(player2);
+            player2.setCountToRun(0);
+        }
+
+        // objects update
+        for (int i = 0; i < block.size(); ++i) {
+            block.get(i).update();
+>>>>>>> Stashed changes
         }
 
         // player2 update
